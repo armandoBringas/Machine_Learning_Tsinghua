@@ -1,0 +1,48 @@
+# Python related
+*.pyc
+*.pyo
+*.egg-info/
+*.egg
+__pycache__/
+
+# Jupyter Notebook related
+.ipynb_checkpoints/
+*.ipynb
+
+# LaTeX related
+*.aux
+*.glo
+*.idx
+*.log
+*.toc
+*.ist
+*.acn
+*.acr
+*.alg
+*.bbl
+*.blg
+*.dvi
+*.glg
+*.gls
+*.ilg
+*.ind
+*.lof
+*.lot
+*.maf
+*.mtc
+*.mtc1
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Parquet files
+*.parquet
+
+# data folder
+Code/data/*
+
+# Other common ignored files
+.DS_Store
+*.swp
+*.bak
