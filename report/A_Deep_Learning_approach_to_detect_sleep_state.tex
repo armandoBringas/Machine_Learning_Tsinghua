@@ -1,0 +1,180 @@
+\documentclass{article}
+
+
+% if you need to pass options to natbib, use, e.g.:
+\PassOptionsToPackage{numbers, compress}{natbib}
+% before loading neurips_2023
+
+
+% ready for submission
+%\usepackage{neurips_2023}
+
+
+% to compile a preprint version, e.g., for submission to arXiv, add add the
+% [preprint] option:
+% \usepackage[preprint]{neurips_2023}
+
+
+% to compile a camera-ready version, add the [final] option, e.g.:
+\usepackage[final]{neurips_2023}
+
+
+% to avoid loading the natbib package, add option nonatbib:
+% \usepackage[nonatbib]{neurips_2023}
+
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{xcolor}         % colors
+
+% added packages
+\usepackage{amsmath}        
+\usepackage{graphicx}
+
+
+\title{A Deep Learning approach to detect sleep state - Midterm Report}
+
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to LaTeX to determine where to break the
+% lines. Using \AND forces a line break at that point. So, if LaTeX puts 3 of 4
+% authors names on the first line, and the last on the second line, try using
+% \AND instead of \And before the third author name.
+
+
+\author{%
+  Armando Bringas \\
+  2023490306 \\
+  International Student \\
+  Tecnológico de Monterrey \\
+  Querétaro, México \\
+  % \texttt{armandobringas10@mails.tsinghua.edu.cn} \\
+  % examples of more authors
+  \And
+  Alexis Guerrero \\
+  2023480366 \\
+  International Student \\
+  Universidad de Chile \\
+  Santiago de Chile, Chile \\
+  % \texttt{guerreromontea10@mails.tsinghua.edu.cn} \\
+}
+
+
+\begin{document}
+
+
+\maketitle
+
+
+
+
+
+\begin{abstract}
+This investigation proposes an innovative project that leverages deep learning techniques to tackle the complex task of detecting sleep states using accelerometer data from wrist-worn devices \cite{child-mind-institute-detect-sleep-states}. The primary goal is to develop a robust predictive model that markedly improves the accuracy and reliability of sleep state classification leveraging data from wearable technology.
+\end{abstract}
+
+
+\section{Background}
+
+In this type of problem, a Machine Learning approach based on Random Forest has proven effective in detecting sleep-wake states, nonwear versus wear, and sleep stage classification \cite{Sundararajan2021}. An initial attempt employed a Residual Neural Network (RNN), specifically a ResNet initialized with a Glorot uniform initializer and using LeakyReLU activations \cite{Sundararajan2021}. However, when this approach was tested with the Amsterdam dataset, which consists of data collected from 114 individuals recruited by the VU University Medical Center in Amsterdam, The Netherlands \cite{teLindert2020}, the Random Forest approach was observed to outperform the ResNet heuristic, particularly in predicting the wake state \cite{Sundararajan2021}.
+
+Despite evidence from \cite{Sundararajan2021} indicating that traditional methods such as Random Forest outperform ResNets, our motivation is derived from the insights of \cite{Zhang2023}, where the authors introduce the Time-Series Neural Network (TNN). This method, incorporating a Kernel Filter and a Time Attention Mechanism \cite{Zhang2023}, has demonstrated high accuracy in forecasting. In our specific context, we are evaluating whether Long Short-Term Memory Networks (LSTM), Graph Neural Networks (GNN), or an attention-based mechanism would be most suitable for our application.
+
+\section{Progress}
+
+\subsection{Data}
+
+The ultimate goal is to apply a developed Deep Learning architecture to the dataset provided by \cite{child-mind-institute-detect-sleep-states}. Our primary motivation is to utilize deep learning methods for time series analysis, particularly with the "Detect Sleep States" dataset from the Child Mind Institute \cite{child-mind-institute-detect-sleep-states}, which comprises approximately 500 multi-day recordings from wrist-mounted accelerometers. The accelerometer data in this dataset was processed using R with the GGIR package \cite{Migueles2019GGIR}. The recordings are labeled with two event types: 'onset', indicating the start of sleep, and 'wakeup', marking its end. Our primary objective is to accurately identify these two events within the accelerometer data series
+    
+\subsection{Model}
+
+We are planning to implement an architecture with a LSTM cell to our input sequence series, where the intermediate variables \( \overline{i}, \overline{f}, \overline{o}\) corresponding to \textit{input}, \textit{forget} and \textit{output} variables, due to the roles they play to update the cell states and the hidden states, the determination of the hidden state vector \(\overline{h}^{(k)}_{t}\) and the cell state vector \(\overline{c}^{(k)}_{t}\) uses a multi-step process of first compute the intermediate variables and then compute the hidden variables from these intermediate variables \cite{Aggarwal2018}. The updates are as follows:
+
+\textbf{Setting up intermediates}
+\begin{align*}
+\begin{matrix}
+\text{Input Gate:} \\
+\text{Forget Gate:} \\
+\text{Output Gate:} \\
+\text{New C.-State:} \\
+\end{matrix} &\begin{bmatrix}
+\overline{i} \\ 
+\overline{f} \\
+\overline{o} \\
+\overline{c} \\
+\end{bmatrix} =
+\begin{bmatrix}
+\text{sigm} \\
+\text{sigm} \\
+\text{sigm} \\
+\tanh \\
+\end{bmatrix} W^{(k)}
+\begin{bmatrix}
+h_{t}^{(k-1)} \\
+h_{t-1}^{(k)}
+\end{bmatrix}
+\end{align*}
+
+\textbf{Selectively forget and add to long-term memory}
+\begin{equation*}
+\begin{aligned}
+    \overline{c}^{(k)}_{t} = \overline{f} \odot \overline{c}^{(k)}_{t-1} + \overline{i} \odot \overline{c} \\
+\end{aligned}
+\end{equation*}
+
+\textbf{Selectively leak long-term memory to hidden state}
+\begin{equation*}
+\begin{aligned}
+    \overline{h}^{(k)}_{t} &= o_t \odot \tanh(\overline{c}^{(k)}_{t})
+\end{aligned}
+\end{equation*}
+
+As shown  in Figure \ref{fig:neuralnetwork}, we are proposing a starting neural network architecture with the following blocks where consists of a LSTM layer of 64 units, ideal for processing sequences by capturing dependencies from prior inputs. This is followed by a Dense layer, the size of which matches the number of classification categories in your problem, in this case for our binary classification problem \(n_classes = 2\). The final component is a softmax activation function, applied to convert the output into a probability distribution across the predicted classes. 
+
+\begin{figure}[h]
+  \centering
+  \[
+  \xrightarrow{\text{input}} \boxed{\text{LSTM} (64)} \rightarrow \boxed{\text{Dense} (n_{\text{classes}})} \xrightarrow{\text{softmax}}
+  \]
+  \caption{Neural Network for accelerometer data classification}
+  \label{fig:neuralnetwork}
+\end{figure}
+
+\subsection{Evaluation and Results}
+
+For model evaluation we are planning to build a confusion matrix where predictions that align with the ground-truth and exceed the threshold are labeled as TP. Predictions that don't match are labeled as FP, while ground-truths without a corresponding prediction are labeled as FN.
+
+By collecting the events within each \texttt{series\_id} from the data, the Average Precision score: 
+
+\begin{equation*}
+    \text{AP} = \sum_n (R_n - R_{n-1}) P_n,
+\end{equation*}
+
+will be computed for each \( \text{event} \times \text{tolerance} \) group \cite{child-mind-institute-detect-sleep-states}, where \(P_n\) and \(R_n\) are the precision and recall at the nth threshold, with random predictions, the AP is the fraction of positive samples \cite{scikit-learn}\cite{flach2015}.
+
+
+\section{Challenges}
+
+One challenge we have noticed is that the data for sleep state detection can originate from various types of devices, such as optical plethysmography and accelerometer signals \cite{Beattie_2017}\cite{Fedorin2019}, depending on the research context. Specifically, there are instances where the data is derived from accelerometers, among other sensor types. Consequently, the methods utilized in each case act as a baseline for their respective projects. This implies that it may not be feasible to develop a universal solution that generalizes across data from different sources.
+
+Another challenge involves initiating trials to implement deep learning techniques, beginning with Long Short-Term Memory Networks (LSTM). We need to check if the impact to work directly with raw signals, the effects of the noise and the implications of not doing feature extraction. Subsequently, we plan to transition to more complex architectures or even develop our own architecture, incorporating attention-based mechanisms.
+
+
+{
+\small
+%%%%%%%%%%%%%
+\bibliographystyle{plainnat} % or another suitable style
+\bibliography{bibliography} % replace with your BibTeX file name
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
