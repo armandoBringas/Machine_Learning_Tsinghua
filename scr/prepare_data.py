@@ -100,52 +100,53 @@ def save_each_series(this_series_df: pl.DataFrame, columns: list[str], output_di
 
 
 # Main processing function
-def process_data(phase, data_dir, processed_dir):
+def process_data(phases, data_dir, processed_dir):
     """
-    Processes the data by reading, transforming, and saving it in a structured format.
+    Processes the data by reading, transforming, and saving it in a structured format for multiple phases.
 
     Args:
-    - phase (str): The phase of data processing ('train', 'test', 'dev').
+    - phases (list of str): The phases of data processing ('train', 'test', 'dev').
     - data_dir (str): The directory containing the raw data files.
     - processed_dir (str): The directory where processed data will be saved.
     """
-    processed_dir = Path(processed_dir) / phase
+    for phase in phases:
+        current_processed_dir = Path(processed_dir) / phase
 
-    # Remove existing processed data directory for the current phase
-    if processed_dir.exists():
-        shutil.rmtree(processed_dir)
-        print(f"Removed {phase} dir: {processed_dir}")
+        # Remove existing processed data directory for the current phase
+        if current_processed_dir.exists():
+            shutil.rmtree(current_processed_dir)
+            print(f"Removed {phase} dir: {current_processed_dir}")
 
-    # Load data depending on phase
-    file_name = f"{phase}_series.parquet" if phase != "dev" else "dev_series.parquet"
-    series_lf = pl.scan_parquet(Path(data_dir) / file_name, low_memory=True)
+        # Load data depending on phase
+        file_name = f"{phase}_series.parquet" if phase != "dev" else "dev_series.parquet"
+        series_lf = pl.scan_parquet(Path(data_dir) / file_name, low_memory=True)
 
-    # Preprocess data
-    series_df = series_lf.with_columns(
-        pl.col("timestamp").str.to_datetime("%Y-%m-%dT%H:%M:%S%z"),
-        deg_to_rad(pl.col("anglez")).alias("anglez_rad"),
-        (pl.col("anglez") - ANGLEZ_MEAN) / ANGLEZ_STD,
-        (pl.col("enmo") - ENMO_MEAN) / ENMO_STD
-    ).select([
-        pl.col("series_id"), pl.col("anglez"), pl.col("enmo"),
-        pl.col("timestamp"), pl.col("anglez_rad")
-    ]).collect(streaming=True).sort(by=["series_id", "timestamp"])
+        # Preprocess data
+        series_df = series_lf.with_columns(
+            pl.col("timestamp").str.to_datetime("%Y-%m-%dT%H:%M:%S%z"),
+            deg_to_rad(pl.col("anglez")).alias("anglez_rad"),
+            (pl.col("anglez") - ANGLEZ_MEAN) / ANGLEZ_STD,
+            (pl.col("enmo") - ENMO_MEAN) / ENMO_STD
+        ).select([
+            pl.col("series_id"), pl.col("anglez"), pl.col("enmo"),
+            pl.col("timestamp"), pl.col("anglez_rad")
+        ]).collect(streaming=True).sort(by=["series_id", "timestamp"])
 
-    # Process each series individually
-    n_unique = series_df.get_column("series_id").n_unique()
-    for series_id, this_series_df in tqdm(series_df.groupby("series_id"), total=n_unique):
-        enhanced_series_df = add_feature(this_series_df)
-        series_dir = processed_dir / series_id
-        save_each_series(enhanced_series_df, FEATURE_NAMES, series_dir)
+        # Process each series individually
+        n_unique = series_df.get_column("series_id").n_unique()
+        for series_id, this_series_df in tqdm(series_df.groupby("series_id"), total=n_unique):
+            enhanced_series_df = add_feature(this_series_df)
+            series_dir = current_processed_dir / series_id
+            save_each_series(enhanced_series_df, FEATURE_NAMES, series_dir)
 
 
 # Configuration
 config = {
     'data_dir': '../data/',
     'processed_dir': '../data/processed/',
-    'phase': 'train'  # or 'test', 'dev'
+    'phases': ['train', 'test']  # List of phases to process
 }
 
 # Main Execution
 if __name__ == "__main__":
-    process_data(config['phase'], config['data_dir'], config['processed_dir'])
+    process_data(config['phases'], config['data_dir'], config['processed_dir'])
