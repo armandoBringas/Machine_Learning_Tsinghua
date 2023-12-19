@@ -170,10 +170,16 @@ cython_debug/
 profile_default/
 ipython_config.py
 
+# Ignore PyCharm files
+.idea/
+
 # Remove previous ipynb_checkpoints
 #   git rm -r .ipynb_checkpoints/
-# Ignore everything inside any directory within the data folder
-data/*
 
-# But do not ignore the directories themselves
-!data/*/.gitkeep
+# Ignore everything inside the data directory
+data/**
+
+# Exclude .gitkeep in specific subdirectories
+!data/processed/test/.gitkeep
+!data/processed/train/.gitkeep
+!data/**/*.gitkeep
