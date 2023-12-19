@@ -1,3 +1,11 @@
+# --------------------------------------------------------------------------------
+# The following code is adapted from/based on a script by [213tubo: https://www.kaggle.com/tubotubo]
+# from the [kaggle-child-mind-institute-detect-sleep-states] available at:
+# https://github.com/tubo213/kaggle-child-mind-institute-detect-sleep-states/blob/main/run/prepare_data.py
+#
+# Modifications were made to fit the specific requirements of this project.
+# --------------------------------------------------------------------------------
+
 import shutil
 import numpy as np
 import polars as pl
