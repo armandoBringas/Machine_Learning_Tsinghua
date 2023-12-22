@@ -34,7 +34,9 @@
 \usepackage{xcolor}         % colors
 
 % added packages
-\usepackage{amsmath}        
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{dsfont}
 \usepackage{graphicx}
 
 
@@ -78,27 +80,82 @@
 
 
 \begin{abstract}
-This investigation proposes an innovative project that leverages deep learning techniques to tackle the complex task of detecting sleep states using accelerometer data from wrist-worn devices \cite{child-mind-institute-detect-sleep-states}. The primary goal is to develop a robust predictive model that markedly improves the accuracy and reliability of sleep state classification leveraging data from wearable technology.
+This investigation proposes a project that utilizes deep learning techniques to address the complex task of detecting sleep states using accelerometer data from wrist-worn devices. This research include a review and critical evaluation of various deep learning architectures, comparing them with other machine learning strategies to determine the most effective approach. With an initial focus on examining state-of-the-art methods, central to this proposal is the development of a deep learning solution for analyzing and predicting time-series data from these wrist-worn devices to accurately identify sleep states. The overarching aim is to implement a reliable predictive model that significantly enhances the precision and dependability of sleep state classification using data from wearable technology.
 \end{abstract}
 
 
-\section{Background}
+\section{Introduction}
 
-In this type of problem, a Machine Learning approach based on Random Forest has proven effective in detecting sleep-wake states, nonwear versus wear, and sleep stage classification \cite{Sundararajan2021}. An initial attempt employed a Residual Neural Network (RNN), specifically a ResNet initialized with a Glorot uniform initializer and using LeakyReLU activations \cite{Sundararajan2021}. However, when this approach was tested with the Amsterdam dataset, which consists of data collected from 114 individuals recruited by the VU University Medical Center in Amsterdam, The Netherlands \cite{teLindert2020}, the Random Forest approach was observed to outperform the ResNet heuristic, particularly in predicting the wake state \cite{Sundararajan2021}.
+This paper presents a project proposal rooted in the practical application of a Kaggle competition, aimed at addressing a challenge in pediatric health and neuroscience: the identification of sleep states in children through wrist-worn accelerometer data. The competition serves as a catalyst for innovation, prompting the development of a sophisticated machine learning model capable of discerning the subtle onset of various sleep states and periods of wakefulness with precision.
 
-Despite evidence from \cite{Sundararajan2021} indicating that traditional methods such as Random Forest outperform ResNets, our motivation is derived from the insights of \cite{Zhang2023}, where the authors introduce the Time-Series Neural Network (TNN). This method, incorporating a Kernel Filter and a Time Attention Mechanism \cite{Zhang2023}, has demonstrated high accuracy in forecasting. In our specific context, we are evaluating whether Long Short-Term Memory Networks (LSTM), Graph Neural Networks (GNN), or an attention-based mechanism would be most suitable for our application.
+The significance of this project lies in its potential to deepen our understanding of sleep and to provide further insights into its importance. For instance, understanding how environmental factors influence sleep, mood, and behavior can aid in formulating personalized strategies tailored to the unique needs of each child \cite{child-mind-institute-detect-sleep-states}. Furthermore, the outcomes of this project could enable researchers to undertake more comprehensive, large-scale sleep studies across a variety of populations and contexts, which could yield even more valuable information about sleep \cite{child-mind-institute-detect-sleep-states}.
 
-\section{Progress}
+\section{Literature Review}
+
+For this type of problem, a Machine Learning approach based on Random Forest has proven effective in detecting sleep-wake states, non-wear versus wear, and sleep stage classification \cite{Sundararajan2021}. An initial attempt was made using a Residual Neural Network (RNN), specifically a ResNet initialized with a Glorot uniform initializer and employing LeakyReLU activations \cite{Sundararajan2021}. However, when testing this approach with the Amsterdam dataset, which consists of data collected from 114 individuals recruited by the VU University Medical Center in Amsterdam, The Netherlands \cite{teLindert2020}, it was observed that the Random Forest approach outperformed the ResNet heuristic. Notably, the ResNet had difficulties with wake state prediction \cite{Sundararajan2021}. However, it is important to remark that most the used data was collected with the GENActiv accelerometer brand, it should be consider future studies to assess model transferability across other accelerometer brands \cite{Sundararajan2021}.
+
+We explored another approach that analyzes data from the VU University Medical Center in Amsterdam, The Netherlands \cite{teLindert2020}. Unlike machine learning methods, this study employed Latent Class Analysis (LCA), a statistical method rather than a machine learning or deep learning technique. LCA, commonly used in social, psychological, and behavioral sciences, identifies latent classes within populations sharing common characteristics \cite{qing2023}. In their study, LCA was utilized to differentiate subtypes of sleep misperception among individuals using data from actigraphy and sleep diaries from the people in their studies \cite{teLindert2020}. Sleep misperception, in this context, is the discrepancy between subjectively perceived and objectively measured sleep, crucial for understanding disorders like Insomnia Disorder \cite{teLindert2020}. This study, focusing on a statistical categorical approach to classify sleep misperception, falls outside our scope.
+
+Also, it is important to note that the analyzed information for sleep state detection can come from different types of devices, from example from an optical plethysmography and accelerometer signals \cite{Beattie_2017} \cite{Fedorin2019}, depending on the research. Specifically, there are cases in which the data is extracted from accelerometers among other types of sensors. Therefore, the methods utilized in each case serve as a baseline for their respective projects, this means that couldn't be possible a suitable that generalize over the data coming from different sources.
+
+Understanding the clinical implications of devices employed for sleep state detection is crucial. Accelerometry is frequently utilized as a cost-effective method for assessing sleep states. However, it appears that traditional machine learning algorithms may have limitations in accuracy, particularly in patients with insomnia \cite{Sundararajan2021}. There exists both an opportunity and a growing interest in refining these algorithms by enhancing the accuracy of accelerometry could transform it into a more clinically valuable tool, enabling the measurement of sleep and wakefulness over prolonged periods \cite{Sundararajan2021}.
+
+Despite evidence suggesting that classical methods, such as Support Vector Machines, effectively detect sleep states and may outperform Deep Learning methods in specific scenarios with data from actigraph devices that recorded signals using a microelectromechanical system (MEMS) accelerometer \cite{teLindert2020}, similar to the GENActiv accelerometer \cite{Sundararajan2021}, were analyzed., we explored alternative approaches. Our investigation revealed the deployment of Deep Learning and other Machine Learning models for detecting sleep states from various source signals. These include electrocardiography (ECG), which measures the heart's electrical activity in combination of respiratory and movement signals \cite{Stuburic2020}, or electroencephalogram (EEG), employing electrodes on the scalp to monitor brain electrical signals \cite{Sekkal2022}. Other sources involve a combination of optical plethysmography and accelerometer signals \cite{Beattie_2017} \cite{Fedorin2019}, and more complex inputs like multi-channel polysomnogram (PSG) \cite{Li2021}. PSG encompasses diverse physiological continuous-time signals from multiple sensors, including EEG, electrooculography (EOG) for eye movement, electromyography (EMG) for muscle contractions, and monitors for respiration and body oxygen levels \cite{Li2021}.
+
+Although the different source signals, overally, they shared in common the complexity, high-dimensionality, noise and temporo-spatial dependency structure of these data types that make them suitable for analysis using deep learning models with their respective challenges \cite{thomas2018}. A potential challenge could yield with working with raw signals introduced with the network without doing feature extraction \cite{Stuburic2020}. From the work of \cite{michielli2019} they compare different methods and algorithms based on data from heart rate and wrist actigraphy, but they did low-level and mid-level feature extraction before introducing to the network, the best results was obtained from a Long Short-Term Memory LSTM network for 2-class classification with an accuracy of 83.56\% \cite{michielli2019}.
+
+A Long Short-Term Memory network (LSTM) is a specialized type of Recurrent Neural Network (RNN). It's important to note that RNNs are a natural choice for time-series forecasting and prediction \cite{Aggarwal2018}. LSTM enhances the RNN architecture by modifying the recurrence conditions of how the hidden states are propagated \cite{Aggarwal2018}. Additionally, it addresses the challenges of vanishing and exploding gradients, which are critical issues in neural network training \cite{Aggarwal2018, michielli2019}.
+
+In their research, Sekkal et al. \cite{Sekkal2022} utilized a LSTM network for analyzing the Physionet Sleep-EDF Database, containing 153 polysomnograms (PSGs) from two-night recordings. Feature extraction was performed to refine the data within the PSG signals. The study's relevance stems from its comparison of classical machine learning techniques with deep learning approaches, notably focusing on LSTM due to its proficiency in identifying temporal relationships between sleep stages \cite{Sekkal2022}. In their bi-directional LSTM classifier implementation, an accuracy of 87.8\% was achieved on the PSG (Fpz-Cz + Pz-Oz + EOG) classifier. Contrasting this, Fraiwan \& Alkhodari \cite{fraiwan2020} reported a peak accuracy of 97.1\% using a bi-directional LSTM with a single channel. However, their training set showed significant class imbalance, with the 'awake' stage constituting 68\% of the epochs. This imbalance likely skewed the classifier's performance, favoring the more prevalent sleep stage.
+
+The bi-directional LSTM classifier model, referenced in the studies by Sekkal et al. \cite{Sekkal2022} and Fraiwan \& Alkhodari \cite{fraiwan2020}, represents an enhancement of the standard LSTM. This variant eliminates the one-step truncation inherent in the original LSTM design. Bidirectional training possesses an architectural advantage over unidirectional training if used
+to classify phonemes \cite{Graves2005}, it incorporates a comprehensive error gradient calculation, enabling training through standard backpropagation through time (BPTT) \cite{Staudemeyer2019}.
+
+Is important to remark that Fiorillo et al. \cite{Fiorillo2019} present a systematic and comprehensive review of deep learning algorithms applied to sleep scoring. The paper thoroughly examines the latest applications and compares them to other methodologies, it concluded that deep learning methods offer numerous advantages. Notably, these algorithms can be applied directly to raw data in comparison with other approaches that involved feature extraction \cite{Stuburic2020} \cite{michielli2019}, therefore requiring minimal artifact removal. Furthermore, they are capable of unveiling hidden information that traditional feature-based approaches might overlook.
+
+Finally, in the work of \cite{Stuburic2020} they implemented a LSTM architecture with the raw signals from EEG without any prior feature extraction. The preprocessing involved reducing noise and smoothing the signal using a median filter and, in some cases, applying signal flipping or baseline subtraction. LSTM were designed to learn features directly from these raw, preprocessed signals without any feature extraction step, they achieved an accuracy of 80\% in 5-class classification.
+
+To address our particular challenge, we propose initially implementing an LSTM architecture without feature extraction. This approach is selected based on revisited literature that emphasizes its effectiveness in capturing temporal dependencies in sequential data, a key characteristic of our problem domain. Subsequent stages of our research will involve evaluating the performance of this model and discussing potential enhancements. These may include the integration of feature extraction techniques or the exploration of other Deep Learning architectures, as needed.
+
+
+\section{A Machine Learning and Deep Learning approaches}
+
+The ultimate goal is to apply a developed Deep Learning architecture to the dataset provided by \cite{child-mind-institute-detect-sleep-states}. Our primary motivation lies in the use of deep learning methods for time series analysis, particularly with the "Detect Sleep States" dataset furnished by the Child Mind Institute \cite{child-mind-institute-detect-sleep-states}. 
+
 
 \subsection{Data}
 
-The ultimate goal is to apply a developed Deep Learning architecture to the dataset provided by \cite{child-mind-institute-detect-sleep-states}. Our primary motivation is to utilize deep learning methods for time series analysis, particularly with the "Detect Sleep States" dataset from the Child Mind Institute \cite{child-mind-institute-detect-sleep-states}, which comprises approximately 500 multi-day recordings from wrist-mounted accelerometers. The accelerometer data in this dataset was processed using R with the GGIR package \cite{Migueles2019GGIR}. The recordings are labeled with two event types: 'onset', indicating the start of sleep, and 'wakeup', marking its end. Our primary objective is to accurately identify these two events within the accelerometer data series
+ The dataset consists of approximately 500 multi-day recordings from wrist-mounted accelerometers. The accelerometer data in the dataset was processed using R with the GGIR package \cite{Migueles2019GGIR}. The recordings are labeled with two event types: 'onset', indicating the start of sleep, and 'wakeup', marking its end. The primary objective is to identify these two events within the accelerometer data series, this primarily represents a binary classification task. As shown in Figure \ref{fig:accelerometerdata} The data represents series of continuous recording of the accelerometer data for a single subject spanning many days, where we can find:
+
+ \begin{itemize}
+  \item \texttt{series\_id}: Unique identifier for each accelerometer series.
+    \item \texttt{step}: An integer timestep for each observation within a series. It is uniqute within a series
+  \item \texttt{event}: The type of event, whether onset or wakeup. 
+  \item \texttt{anglez}: As calculated and described by the GGIR package, z-angle is a metric derived from individual accelerometer components that is commonly used in sleep detection, and refers to the angle of the arm relative to the vertical axis of the body \cite{Migueles2019GGIR}.
+  \item \texttt{enmo}: As calculated and described by the GGIR package, ENMO is the Euclidean Norm Minus One of all accelerometer signals, with negative values rounded to zero. While no standard measure of acceleration exists in this space, this is one of the several commonly computed features \cite{Migueles2019GGIR}.
+\end{itemize}
+
+ \begin{figure*}[ht]
+    \centering
+    \includegraphics[width=1\linewidth]{report/figures/time_series.png}
+    \caption{Accelerometer training data. Plot of \texttt{step} againts \texttt{anglez} showing \texttt{event} state}
+    \label{fig:accelerometerdata}
+\end{figure*}
+
+
     
 \subsection{Model}
 
-We are planning to implement an architecture with a LSTM cell to our input sequence series, where the intermediate variables \( \overline{i}, \overline{f}, \overline{o}\) corresponding to \textit{input}, \textit{forget} and \textit{output} variables, due to the roles they play to update the cell states and the hidden states, the determination of the hidden state vector \(\overline{h}^{(k)}_{t}\) and the cell state vector \(\overline{c}^{(k)}_{t}\) uses a multi-step process of first compute the intermediate variables and then compute the hidden variables from these intermediate variables \cite{Aggarwal2018}. The updates are as follows:
+\subsubsection{Random Forest}
 
-\textbf{Setting up intermediates}
+
+\subsubsection{LSTM - Long Short Term Memory}
+
+We are planning to implement an architecture that incorporates an LSTM cell into our sequence of input data. In this cell architecture, the intermediate variables \( \overline{i}, \overline{f}, \overline{o} \), corresponding to the \textit{input}, \textit{forget}, and \textit{output} gates, play crucial roles in updating the cell and hidden states. The determination of the hidden state vector \( \overline{h}^{(k)}_{t} \) and the cell state vector \( \overline{c}^{(k)}_{t} \) is a multi-step process that starts by computing the intermediate variables, followed by the computation of the hidden states from these intermediates \cite{Aggarwal2018}. The updates are as follows:
+
+\vspace{0.5em}
+
+\textbf{[Setting up intermediates]}
 \begin{align*}
 \begin{matrix}
 \text{Input Gate:} \\
@@ -123,21 +180,26 @@ h_{t-1}^{(k)}
 \end{bmatrix}
 \end{align*}
 
-\textbf{Selectively forget and add to long-term memory}
+\textbf{[Selectively forget and add to long-term memory]}
+
 \begin{equation*}
 \begin{aligned}
     \overline{c}^{(k)}_{t} = \overline{f} \odot \overline{c}^{(k)}_{t-1} + \overline{i} \odot \overline{c} \\
 \end{aligned}
 \end{equation*}
 
-\textbf{Selectively leak long-term memory to hidden state}
+\textbf{[Selectively leak long-term memory to hidden state]}
+
 \begin{equation*}
 \begin{aligned}
     \overline{h}^{(k)}_{t} &= o_t \odot \tanh(\overline{c}^{(k)}_{t})
 \end{aligned}
 \end{equation*}
 
-As shown  in Figure \ref{fig:neuralnetwork}, we are proposing a starting neural network architecture with the following blocks where consists of a LSTM layer of 64 units, ideal for processing sequences by capturing dependencies from prior inputs. This is followed by a Dense layer, the size of which matches the number of classification categories in your problem, in this case for our binary classification problem \(n_classes = 2\). The final component is a softmax activation function, applied to convert the output into a probability distribution across the predicted classes. 
+Our neural network architecture employs an LSTM to incorporate the classifications of previous inputs into the current sample's classification. This approach is suitable to looking back to inform the present, a method particularly suited for cyclical patterns like sleep stages \cite{Stuburic2020}, which recur throughout the night. Therefore, LSTMs, with their recurrent nature, could be an ideal choice for this type of cyclic temporal problems.
+
+As shown in Figure \ref{fig:neuralnetwork} 
+We are proposing a starting neural network architecture with the following blocks where consists of a LSTM layer of 64 units, ideal for processing sequences by capturing dependencies from prior inputs. This is followed by a Dense layer, the size of which matches the number of classification categories in your problem, in this case for our binary classification problem \(n_classes = 2\). The final component is a softmax activation function, applied to convert the output into a probability distribution across the predicted classes. 
 
 \begin{figure}[h]
   \centering
@@ -148,24 +210,95 @@ As shown  in Figure \ref{fig:neuralnetwork}, we are proposing a starting neural 
   \label{fig:neuralnetwork}
 \end{figure}
 
-\subsection{Evaluation and Results}
 
-For model evaluation we are planning to build a confusion matrix where predictions that align with the ground-truth and exceed the threshold are labeled as TP. Predictions that don't match are labeled as FP, while ground-truths without a corresponding prediction are labeled as FN.
+Is important to check if the impact to work directly with raw signals, the effects of the noise and the implications of not doing feature extraction do not affect performance in the training of the model. Subsequently, with the results of the first trials we might plan work more in data pre-processing if needed or even transition to more complex architectures. Other point of consideration is that one of the common problems is that the time-series sequences can be extremely long and therefore can be certain limitations with its performance \cite{Aggarwal2018}.
 
-By collecting the events within each \texttt{series\_id} from the data, the Average Precision score: 
+\subsection{Evaluation}
+
+To evaluate model classification, three factors will be taken into account; the average precision ($AP$), the sensitivity or recall ($SN$) and the specificity ($SPC$). Each one is described as follows:
+
+\subsubsection{Average Precision}
+
+Let $\mathcal{X}$ be a vector with all the inputs of the model, from $x_1$ to $x_N$, supossing an arbitrary quantity of $N$ elements of data, with $N \in \mathds{N}$. Let $\mathcal{Y}$ be a vector with all the model outputs, from $y_1$ to $y_N$ under the same previous assumptions. Also, let $\mathcal{W}$ be a vector with all the labels for the model, represented from $w_1$ to $w_N$. Then, we have:
+
+\begin{gather}
+  \text{Inputs} \ \mathcal{X} = (x_1, \ldots, x_N)^\intercal \\
+  \text{Outputs} \ \mathcal{Y} = (y_1, \ldots, y_N)^\intercal \\
+  \text{Labels} \ \mathcal{W} = (w_1, \ldots, w_N)^\intercal 
+\end{gather}
+
+The average precision function, compares the quantity of succesful predictions with the total quantity of data. We define this function as follows:
 
 \begin{equation*}
-    \text{AP} = \sum_n (R_n - R_{n-1}) P_n,
+AP = \frac{1}{N} \sum_{i=1}^{N}{\mathcal{C}(w_i,y_i)}
 \end{equation*}
 
-will be computed for each \( \text{event} \times \text{tolerance} \) group \cite{child-mind-institute-detect-sleep-states}, where \(P_n\) and \(R_n\) are the precision and recall at the nth threshold, with random predictions, the AP is the fraction of positive samples \cite{scikit-learn}\cite{flach2015}.
+Where $\mathcal{C}(w_i,y_i)$ is a function such that:
+
+\[
+\mathcal{C}(w_i,y_i) =
+\begin{cases}
+  1 \text{ if } w_i = y_i \forall i \in \mathds{N}, 1 \leq i \leq N\\
+  0 \text{ if } w_i \neq y_i \forall i \in \mathds{N}, 1 \leq i \leq N
+\end{cases}
+\]
+
+Then, doing a redefinition of this function as:
+
+\begin{equation*}
+APF(\mathcal{W}, \mathcal{Y}) = \frac{1}{N} A 1_N
+\end{equation*}
+
+Where $A$ is a matrix of $1 \times N$ which each of its elements described by $\omega_i$, where $ \omega_i = \mathcal{C}(w_i,y_i), \forall i \in \mathds{N}, 1 \leq i \leq N$ and $1_N$ is a matrix of $N \times 1$ with all of its elements being $1$. Finally, we can define our average precision function as:
+
+\begin{gather}
+  APF(\mathcal{W}, \mathcal{Y}) = \frac{1}{N} A 1_N \\
+  APF(\mathcal{W}, \mathcal{Y}) = \frac{1}{N} (\omega_1, \ldots, \omega_N) (1, \ldots, 1)^\intercal 
+\end{gather}
+
+\subsubsection{Specificity and Sensitivity/Recall}
 
 
-\section{Challenges}
+To evaluate model classification, predictions that align with the ground truth and exceed the threshold are labeled as True Positives (TP). Predictions that do not match are labeled as False Positives (FP), while ground truths without a corresponding prediction are labeled as False Negatives (FN). Where,
+
+\[
+\text{Score}(x) = 
+\begin{cases} 
+\text{TP} & \text{if }x \text{ matched and } x > \text{thresh.} \\
+\text{FP} & \text{if }x \text{ unmatched pred.} \\
+\text{FN} & \text{if }x \text{ unmatched truth} \\
+\text{TN} & \text{otherwise}
+\end{cases}
+\]
+
+We can make two measurements with this information, being the first; specificity, the rate of true positives and the second; sensitivity or recall, the rate or true negatives. Each ones is defined below with its corresponding notation ($SPC$ and $SN$)
+
+\begin{gather}
+  SPC = \frac{TP}{TP + FN} \\
+  SN = \frac{TN}{TN + FP}
+\end{gather}
+
+\subsubsection{Final evaluation of model classification}
+
+With $APF$, $SPC$ and $SN$ the average precision function, the specificity and the sensitivity or recall, as defined before. And with $\alpha$, $\beta$, $\gamma$ values that weight each metric, we have our final expression as described here:
+
+\begin{equation}
+\text{Model evaluation } = \alpha APF + \beta SPC + \gamma SN 
+\end{equation*}
+
+\vspace{.5em}
+
+
+
+\section{Results}
 
 One challenge we have noticed is that the data for sleep state detection can originate from various types of devices, such as optical plethysmography and accelerometer signals \cite{Beattie_2017}\cite{Fedorin2019}, depending on the research context. Specifically, there are instances where the data is derived from accelerometers, among other sensor types. Consequently, the methods utilized in each case act as a baseline for their respective projects. This implies that it may not be feasible to develop a universal solution that generalizes across data from different sources.
 
 Another challenge involves initiating trials to implement deep learning techniques, beginning with Long Short-Term Memory Networks (LSTM). We need to check if the impact to work directly with raw signals, the effects of the noise and the implications of not doing feature extraction. Subsequently, we plan to transition to more complex architectures or even develop our own architecture, incorporating attention-based mechanisms.
+
+\section{Conclusion}
+
+To address this challenge, we want to continue over implementing deep learning techniques, despite evidence from \cite{Sundararajan2021} indicating that traditional methods such as Random Forest outperform ResNets. Our motivation stems from the insights gained from \cite{Zhang2023}, where the authors present the Time-Series Neural Network (TNN). This method, which incorporates a Kernel Filter alongside a Time Attention Mechanism \cite{Zhang2023}, has demonstrated high accuracy in forecasting, will be interesting to evaluate their perfomance on classification. In our specific context, we are in the process of evaluating whether Long Short-Term Memory Networks (LSTM), Graph Neural Networks (GNN), or potentially an attention-based mechanism would be most suitable for our application.
 
 
 {
