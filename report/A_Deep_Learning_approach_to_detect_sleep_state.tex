@@ -34,7 +34,9 @@
 \usepackage{xcolor}         % colors
 
 % added packages
-\usepackage{amsmath}        
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{dsfont}
 \usepackage{graphicx}
 
 
@@ -213,6 +215,50 @@ Is important to check if the impact to work directly with raw signals, the effec
 
 \subsection{Evaluation}
 
+To evaluate model classification, three factors will be taken into account; the average precision ($AP$), the sensitivity or recall ($SN$) and the specificity ($SPC$). Each one is described as follows:
+
+\subsubsection{Average Precision}
+
+Let $\mathcal{X}$ be a vector with all the inputs of the model, from $x_1$ to $x_N$, supossing an arbitrary quantity of $N$ elements of data, with $N \in \mathds{N}$. Let $\mathcal{Y}$ be a vector with all the model outputs, from $y_1$ to $y_N$ under the same previous assumptions. Also, let $\mathcal{W}$ be a vector with all the labels for the model, represented from $w_1$ to $w_N$. Then, we have:
+
+\begin{gather}
+  \text{Inputs} \ \mathcal{X} = (x_1, \ldots, x_N)^\intercal \\
+  \text{Outputs} \ \mathcal{Y} = (y_1, \ldots, y_N)^\intercal \\
+  \text{Labels} \ \mathcal{W} = (w_1, \ldots, w_N)^\intercal 
+\end{gather}
+
+The average precision function, compares the quantity of succesful predictions with the total quantity of data. We define this function as follows:
+
+\begin{equation*}
+AP = \frac{1}{N} \sum_{i=1}^{N}{\mathcal{C}(w_i,y_i)}
+\end{equation*}
+
+Where $\mathcal{C}(w_i,y_i)$ is a function such that:
+
+\[
+\mathcal{C}(w_i,y_i) =
+\begin{cases}
+  1 \text{ if } w_i = y_i \forall i \in \mathds{N}, 1 \leq i \leq N\\
+  0 \text{ if } w_i \neq y_i \forall i \in \mathds{N}, 1 \leq i \leq N
+\end{cases}
+\]
+
+Then, doing a redefinition of this function as:
+
+\begin{equation*}
+APF(\mathcal{W}, \mathcal{Y}) = \frac{1}{N} A 1_N
+\end{equation*}
+
+Where $A$ is a matrix of $1 \times N$ which each of its elements described by $\omega_i$, where $ \omega_i = \mathcal{C}(w_i,y_i), \forall i \in \mathds{N}, 1 \leq i \leq N$ and $1_N$ is a matrix of $N \times 1$ with all of its elements being $1$. Finally, we can define our average precision function as:
+
+\begin{gather}
+  APF(\mathcal{W}, \mathcal{Y}) = \frac{1}{N} A 1_N \\
+  APF(\mathcal{W}, \mathcal{Y}) = \frac{1}{N} (\omega_1, \ldots, \omega_N) (1, \ldots, 1)^\intercal 
+\end{gather}
+
+\subsubsection{Specificity and Sensitivity/Recall}
+
+
 To evaluate model classification, predictions that align with the ground truth and exceed the threshold are labeled as True Positives (TP). Predictions that do not match are labeled as False Positives (FP), while ground truths without a corresponding prediction are labeled as False Negatives (FN). Where,
 
 \[
@@ -225,17 +271,19 @@ To evaluate model classification, predictions that align with the ground truth a
 \end{cases}
 \]
 
-It is necessary to compute the average precision \cite{child-mind-institute-detect-sleep-states}. By collecting the events within each \texttt{series\_id} from the data the Average Precision score will be computed for each \( \text{event} \times \text{tolerance} \) group \cite{child-mind-institute-detect-sleep-states}. The Average Precision is a measure that combines recall and precision for ranked retrieval results, for one information need, the average precision is the mean of the precision scores after each relevant document is retrieved \cite{Zhang2009}. Average Precision is defined as:
+We can make two measurements with this information, being the first; specificity, the rate of true positives and the second; sensitivity or recall, the rate or true negatives. Each ones is defined below with its corresponding notation ($SPC$ and $SN$)
+
+\begin{gather}
+  SPC = \frac{TP}{TP + FN} \\
+  SN = \frac{TN}{TN + FP}
+\end{gather}
+
+\subsubsection{Final evaluation of model classification}
+
+With $APF$, $SPC$ and $SN$ the average precision function, the specificity and the sensitivity or recall, as defined before. And with $\alpha$, $\beta$, $\gamma$ values that weight each metric, we have our final expression as described here:
 
 \begin{equation*}
-    \text{AP} = \sum_n (R_n - R_{n-1}) P_n,
-\end{equation*}
-
-where \(P_n\) and \(R_n\) are the precision and recall at the nth threshold. With random predictions, the AP is the fraction of positive samples, the value from this function ranges from 0 and 1 and higher is better computed from the prediction scores, \cite{scikit-learn}\cite{flach2015}. Precision and Recall are computed as follows:
-
-\begin{equation*}
-    \text{precision} = \frac{tp}{tp + fp}, \quad
-    \text{recall} = \frac{tp}{tp + fn} 
+\text{Model evaluation } = \alpha APF + \beta SPC + \gamma SN 
 \end{equation*}
 
 \vspace{.5em}
