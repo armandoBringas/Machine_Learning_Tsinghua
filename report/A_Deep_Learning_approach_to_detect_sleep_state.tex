@@ -125,29 +125,60 @@ The ultimate goal is to apply a developed Deep Learning architecture to the data
 
 \subsection{Data}
 
- The dataset consists of approximately 500 multi-day recordings from wrist-mounted accelerometers. The accelerometer data in the dataset was processed using R with the GGIR package \cite{Migueles2019GGIR}. The recordings are labeled with two event types: 'onset', indicating the start of sleep, and 'wakeup', marking its end. The primary objective is to identify these two events within the accelerometer data series, this primarily represents a binary classification task. As shown in Figure \ref{fig:accelerometerdata} The data represents series of continuous recording of the accelerometer data for a single subject spanning many days, where we can find:
+ As shown in Table \ref{fig:accelerometerdata_dataframe}, the dataset consists of approximately 500 multi-day recordings from wrist-mounted accelerometers. The accelerometer data in the dataset was processed using R with the GGIR package \cite{Migueles2019GGIR}. The recordings are labeled with two event types: 'onset', indicating the start of sleep, and 'wakeup', marking its end. The primary objective is to identify these two events within the accelerometer data series, this primarily represents a binary classification task. 
+
+  \begin{table*}[ht]
+    \centering
+    \caption{Random sample series from the dataset}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \textbf{series\_id} & \textbf{step} & \textbf{timestamp} & \textbf{anglez} & \textbf{enmo} & \textbf{awake} \\
+        \hline
+        fa149c3c4bde & 96695 & 2018-09-05T09:17:55-0400 & -35.085 & 0.0153 & 0 \\
+        aa81faa78747 & 173071 & 2018-03-09T17:22:35-0500 & -21.0547 & 0.0504 & 0 \\
+        9c91c546e095 & 325646 & 2018-06-12T08:47:10-0400 & -15.5015 & 0.0261 & 0 \\
+        601559e1777d & 94646 & 2019-03-27T22:57:10-0400 & 5.6094 & 0.0000 & 1 \\
+        188d4b7cd28b & 353126 & 2017-11-29T02:42:10-0500 & -37.105 & 0.0158 & 0 \\
+        c289c8a823e0 & 596500 & 2018-07-11T22:58:20-0400 & -25.187 & 0.0085 & 0 \\
+        0402a003dae9 & 315686 & 2019-01-05T19:12:10-0500 & -22.3541 & 0.0235 & 1 \\
+        c38707ef76df & 321529 & 2018-06-03T01:04:05-0400 & -5.1726 & 0.1138 & 0 \\
+        b7188813d58a & 125675 & 2018-10-11T18:32:55-0400 & 26.7438 & 0.0016 & 1 \\
+        ece2561f07e9 & 424534 & 2017-09-02T01:52:50-0400 & -68.6974 & 0.0000 & 0 \\
+        \hline
+    \end{tabular}
+    \label{fig:accelerometerdata_dataframe}
+\end{table*}
+
+As shown in Figures \ref{fig:accelerometerdata_series-038441c925bb_anglez}, \ref{fig:accelerometerdata_series-038441c925bb_enmo}, the data represents series of continuous recording of the accelerometer data for a single subject spanning many days, where we can find:
 
  \begin{itemize}
   \item \texttt{series\_id}: Unique identifier for each accelerometer series.
     \item \texttt{step}: An integer timestep for each observation within a series. It is uniqute within a series
-  \item \texttt{event}: The type of event, whether onset or wakeup. 
+  \item \texttt{event}: The type of event, whether onset [0] or wakeup [1].
+  \item \texttt{timestamp}: A corresponding datetime in ISO 8601 format: \%Y-\%m-\%dT\%H:\%M:\%S\%z.
   \item \texttt{anglez}: As calculated and described by the GGIR package, z-angle is a metric derived from individual accelerometer components that is commonly used in sleep detection, and refers to the angle of the arm relative to the vertical axis of the body \cite{Migueles2019GGIR}.
   \item \texttt{enmo}: As calculated and described by the GGIR package, ENMO is the Euclidean Norm Minus One of all accelerometer signals, with negative values rounded to zero. While no standard measure of acceleration exists in this space, this is one of the several commonly computed features \cite{Migueles2019GGIR}.
 \end{itemize}
 
  \begin{figure*}[ht]
     \centering
-    \includegraphics[width=1\linewidth]{report/figures/time_series.png}
+    \includegraphics[width=1\linewidth]{figures/038441c925bb_anglez.png}
     \caption{Accelerometer training data. Plot of \texttt{step} againts \texttt{anglez} showing \texttt{event} state}
-    \label{fig:accelerometerdata}
+    \label{fig:accelerometerdata_series-038441c925bb_anglez}
+\end{figure*}
+
+
+
+ \begin{figure*}[ht]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/038441c925bb_enmo.png}
+    \caption{Accelerometer training data. Plot of \texttt{step} againts \texttt{enmo} showing \texttt{event} state}
+    \label{fig:accelerometerdata_series-038441c925bb_enmo}
 \end{figure*}
 
 
     
 \subsection{Model}
-
-\subsubsection{Random Forest}
-
 
 \subsubsection{LSTM - Long Short Term Memory}
 
@@ -212,6 +243,17 @@ We are proposing a starting neural network architecture with the following block
 
 
 Is important to check if the impact to work directly with raw signals, the effects of the noise and the implications of not doing feature extraction do not affect performance in the training of the model. Subsequently, with the results of the first trials we might plan work more in data pre-processing if needed or even transition to more complex architectures. Other point of consideration is that one of the common problems is that the time-series sequences can be extremely long and therefore can be certain limitations with its performance \cite{Aggarwal2018}.
+
+\subsection{Random Forest}
+
+Alongside the implementation of the LSTM model, a Random Forest model will be incorporated to explore an alternative approach in this study. The selection of this model was predicated upon a comprehensive review of the literature conducted during the preliminary phases of this project. As demonstrated in prior cases, Random Forest has exhibited commendable performance and accuracy in the detection of sleep stages, rendering it a suitable method for comparison with the primary model to be developed in our project, namely LSTM.
+
+The Random Forest model is initialized with a predetermined number of $100$ estimators (\textit{n \textunderscore estimators}) and a minimum leaf sample size (\textit{min \textunderscore sample \textunderscore leaf}) set to $300$. These initial values are chosen for the purpose of assessing the model's efficiency and will be subject to subsequent adjustments based on its performance. Given the substantial volume of data in this scenario, it is anticipated that the minimum leaf sample size will remain unchanged, whereas the number of estimators will likely need to be increased to optimize performance.
+
+To ensure reproducibility, a seed is fixed by setting the \textit{random \textunderscore state} to a value of $42$. This measure allows the code to generate consistent results when executed with the same seed. Additionally, the \textit{n \textunderscore jobs} parameter from the scikit-learn library is configured with a value of $-1$, enabling the utilization of all available processors on the device running the code.
+
+The model implementation is [Se me ocurrió una nueva forma de iterar que genere más variación entre resultados así que reemplazaré lo que había aquí referente a las iteraciones y algunas expresiones matemáticas con ello]
+
 
 \subsection{Evaluation}
 
