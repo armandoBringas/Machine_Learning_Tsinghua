@@ -162,7 +162,7 @@ As shown in Figures \ref{fig:accelerometerdata_series-038441c925bb_anglez}, \ref
 
  \begin{figure*}[ht]
     \centering
-    \includegraphics[width=1\linewidth]{figures/038441c925bb_anglez.png}
+    \includegraphics[width=1\linewidth]{report/figures/038441c925bb_anglez.png}
     \caption{Accelerometer training data. Plot of \texttt{step} againts \texttt{anglez} showing \texttt{event} state}
     \label{fig:accelerometerdata_series-038441c925bb_anglez}
 \end{figure*}
@@ -171,7 +171,7 @@ As shown in Figures \ref{fig:accelerometerdata_series-038441c925bb_anglez}, \ref
 
  \begin{figure*}[ht]
     \centering
-    \includegraphics[width=1\linewidth]{figures/038441c925bb_enmo.png}
+    \includegraphics[width=1\linewidth]{report/figures/038441c925bb_enmo.png}
     \caption{Accelerometer training data. Plot of \texttt{step} againts \texttt{enmo} showing \texttt{event} state}
     \label{fig:accelerometerdata_series-038441c925bb_enmo}
 \end{figure*}
@@ -179,6 +179,9 @@ As shown in Figures \ref{fig:accelerometerdata_series-038441c925bb_anglez}, \ref
 
     
 \subsection{Model}
+
+\subsubsection{Random Forest}
+
 
 \subsubsection{LSTM - Long Short Term Memory}
 
@@ -243,17 +246,6 @@ We are proposing a starting neural network architecture with the following block
 
 
 Is important to check if the impact to work directly with raw signals, the effects of the noise and the implications of not doing feature extraction do not affect performance in the training of the model. Subsequently, with the results of the first trials we might plan work more in data pre-processing if needed or even transition to more complex architectures. Other point of consideration is that one of the common problems is that the time-series sequences can be extremely long and therefore can be certain limitations with its performance \cite{Aggarwal2018}.
-
-\subsection{Random Forest}
-
-Alongside the implementation of the LSTM model, a Random Forest model will be incorporated to explore an alternative approach in this study. The selection of this model was predicated upon a comprehensive review of the literature conducted during the preliminary phases of this project. As demonstrated in prior cases, Random Forest has exhibited commendable performance and accuracy in the detection of sleep stages, rendering it a suitable method for comparison with the primary model to be developed in our project, namely LSTM.
-
-The Random Forest model is initialized with a predetermined number of $100$ estimators (\textit{n \textunderscore estimators}) and a minimum leaf sample size (\textit{min \textunderscore sample \textunderscore leaf}) set to $300$. These initial values are chosen for the purpose of assessing the model's efficiency and will be subject to subsequent adjustments based on its performance. Given the substantial volume of data in this scenario, it is anticipated that the minimum leaf sample size will remain unchanged, whereas the number of estimators will likely need to be increased to optimize performance.
-
-To ensure reproducibility, a seed is fixed by setting the \textit{random \textunderscore state} to a value of $42$. This measure allows the code to generate consistent results when executed with the same seed. Additionally, the \textit{n \textunderscore jobs} parameter from the scikit-learn library is configured with a value of $-1$, enabling the utilization of all available processors on the device running the code.
-
-The model implementation is [Se me ocurrió una nueva forma de iterar que genere más variación entre resultados así que reemplazaré lo que había aquí referente a las iteraciones y algunas expresiones matemáticas con ello]
-
 
 \subsection{Evaluation}
 
