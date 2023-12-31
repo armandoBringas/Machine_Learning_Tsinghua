@@ -1,6 +1,5 @@
 \documentclass[10pt]{beamer}
 \usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
 \usepackage{tikz}
 \usepackage{xcolor}
 \usepackage{graphicx}
@@ -182,6 +181,38 @@ to be increased to optimize performance. An iteration process is set along the R
   \end{block}
 \end{frame}
 
+\begin{frame}
+    \frametitle{Results}
+    \begin{block}{}
+        \begin{table}[h]
+            \centering
+            \caption{Random Forest Confusion Matrix}
+            \label{tab:random_forest_confusion_matrix}
+            \begin{tabular}{lcc}
+                \hline
+                \textbf{Actual / Predicted} & \textbf{Predicted Negative} & \textbf{Predicted Positive} \\
+                \hline
+                \textbf{Actual Negative} & 786677 (31.38\%) & 56959 (2.27\%) \\
+                \textbf{Actual Positive} & 70514 (2.81\%) & 1592674 (63.53\%) \\
+                \hline
+            \end{tabular}
+        \end{table}
+
+        \begin{table}[h]
+            \centering
+            \caption{LSTM Confusion Matrix}
+            \label{tab:lstm_confusion_matrix}
+            \begin{tabular}{lcc}
+                \hline
+                \textbf{Actual / Predicted} & \textbf{Predicted Negative} & \textbf{Predicted Positive} \\
+                \hline
+                \textbf{Actual Negative} & 813470 (32.45\%) & 30166 (1.20\%) \\
+                \textbf{Actual Positive} & 178414 (7.12\%) & 1484774 (59.23\%) \\
+                \hline
+            \end{tabular}
+        \end{table}
+    \end{block} 
+\end{frame}
 
 \begin{frame}
     \frametitle{Results}
@@ -194,11 +225,11 @@ to be increased to optimize performance. An iteration process is set along the R
                 \hline
                 \textbf{Metric} & \textbf{Random Forest} & & \textbf{LSTM} & \\
                 \cline{2-5}
-                Accuracy & TBD & & 0.92 & \\
-                Recall & TBD & & 0.90 & \\
-                Specificity & TBD & & 0.97 & \\
-                Average Precision & TBD & & 0.99 & \\
-                Partial Evaluation & TBD & & 0.95 & \\
+                Accuracy & 0.95 & & 0.92 & \\
+                Recall & 0.96 & & 0.90 & \\
+                Specificity & 0.96 & & 0.97 & \\
+                Average Precision & 0.99 & & 0.99 & \\
+                Partial Evaluation & 0.96 & & 0.95 & \\
                 \hline
             \end{tabular}
         \end{table}
