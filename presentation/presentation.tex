@@ -70,7 +70,7 @@ of each child.
     \item Accelerometer data
     \item Actigraphy and sleep diaries
     \item Optical plethysmography
-    \item Eelectrocardiography
+    \item Electrocardiography
     \item Electroencephalography
     \item Multi channel polysomnogram
       \begin{itemize}
@@ -184,12 +184,26 @@ to be increased to optimize performance. An iteration process is set along the R
 
 
 \begin{frame}
-  \frametitle{Results}
-  \begin{block}{}
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-  \end{block} 
+    \frametitle{Results}
+    \begin{block}{}
+        \begin{table}[h]
+            \centering
+            \caption{Model Comparison}
+            \label{tab:model_comparison}
+            \begin{tabular}{lccccc}
+                \hline
+                \textbf{Metric} & \textbf{Random Forest} & & \textbf{LSTM} & \\
+                \cline{2-5}
+                Accuracy & TBD & & 0.92 & \\
+                Recall & TBD & & 0.90 & \\
+                Specificity & TBD & & 0.97 & \\
+                Average Precision & TBD & & 0.99 & \\
+                Partial Evaluation & TBD & & 0.95 & \\
+                \hline
+            \end{tabular}
+        \end{table}
+    \end{block} 
 \end{frame}
-
 
 \begin{frame}
   \frametitle{Conclusion}

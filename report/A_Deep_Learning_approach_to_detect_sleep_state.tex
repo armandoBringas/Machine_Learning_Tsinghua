@@ -453,9 +453,42 @@ With $APF$, $SPC$ and $SN$ the average precision function, the specificity and t
 
 \section{Results}
 
+
+\begin{table}[h]
+    \centering
+    \caption{LSTM Confusion Matrix}
+    \label{tab:lstm_confusion_matrix}
+    \begin{tabular}{lcc}
+        \hline
+        \textbf{Actual / Predicted} & \textbf{Predicted Negative} & \textbf{Predicted Positive} \\
+        \hline
+        \textbf{Actual Negative} & 813470 (32.45\%) & 30166 (1.20\%) \\
+        \textbf{Actual Positive} & 178414 (7.12\%) & 1484774 (59.23\%) \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \caption{Model Comparison}
+    \label{tab:model_comparison}
+    \begin{tabular}{lccccc}
+        \hline
+        \textbf{Metric} & \textbf{Random Forest} & & \textbf{LSTM} & \\
+        \cline{2-5}
+        Accuracy & TBD & & 0.92 & \\
+        Recall & TBD & & 0.90 & \\
+        Specificity & TBD & & 0.97 & \\
+        Average Precision & TBD & & 0.99 & \\
+        Partial Evaluation & TBD & & 0.95 & \\
+        \hline
+    \end{tabular}
+\end{table}
+
+
 One challenge we have noticed is that the data for sleep state detection can originate from various types of devices, such as optical plethysmography and accelerometer signals \cite{Beattie_2017}\cite{Fedorin2019}, depending on the research context. Specifically, there are instances where the data is derived from accelerometers, among other sensor types. Consequently, the methods utilized in each case act as a baseline for their respective projects. This implies that it may not be feasible to develop a universal solution that generalizes across data from different sources.
 
-Another challenge involves initiating trials to implement deep learning techniques, beginning with Long Short-Term Memory Networks (LSTM). We need to check if the impact to work directly with raw signals, the effects of the noise and the implications of not doing feature extraction. Subsequently, we plan to transition to more complex architectures or even develop our own architecture, incorporating attention-based mechanisms.
+Another challenge involves initiating trials to implement deep learning techniques, beginning with Long Short-Term Memory Networks (LSTM). We need to check if the impact to work directly with raw signals, the effects of the noise and the implications of not doing feature extraction. Subsequently, we plan to transition to more complex architectures or even develop our own architecture, by for example, incorporating attention-based mechanisms.
 
 \section{Conclusion}
 
