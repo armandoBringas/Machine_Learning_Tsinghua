@@ -38,6 +38,7 @@
 \usepackage{amssymb}
 \usepackage{dsfont}
 \usepackage{graphicx}
+\usepackage{tikz}
 
 
 \title{A Deep Learning approach to detect sleep state - Midterm Report}
@@ -120,7 +121,7 @@ To address our particular challenge, we propose initially implementing an LSTM a
 
 \section{A Machine Learning and Deep Learning approaches}
 
-The ultimate goal is to apply a developed Deep Learning architecture to the dataset provided by \cite{child-mind-institute-detect-sleep-states}. Our primary motivation lies in the use of deep learning methods for time series analysis, particularly with the "Detect Sleep States" dataset furnished by the Child Mind Institute \cite{child-mind-institute-detect-sleep-states}. 
+The global objective is to apply a Deep Learning architecture to the dataset provided by \cite{child-mind-institute-detect-sleep-states}. Our primary motivation emanates from the efficacy of deep learning methodologies in the realm of time series analysis, with a particular focus on the 'Detect Sleep States' dataset from the Child Mind Institute \cite{child-mind-institute-detect-sleep-states}. Furthermore, we aim to employ both Long Short-Term Memory (LSTM) networks and Random Forests as part of our methodology. The dual utilization of these approaches seeks to explore the comparative advantages and complexities that each method might offer in the context of sleep state detection. Finally, upon completion of the implementation phase, a comprehensive benchmarking analysis will be conducted to compare and contrast the performance of the LSTM and Random Forest models, providing a deeper insight into their respective strenghts and limitations.
 
 
 \subsection{Data}
@@ -162,7 +163,7 @@ As shown in Figures \ref{fig:accelerometerdata_series-038441c925bb_anglez}, \ref
 
  \begin{figure*}[ht]
     \centering
-    \includegraphics[width=1\linewidth]{report/figures/038441c925bb_anglez.png}
+    \includegraphics[width=1\linewidth]{figures/038441c925bb_anglez.png}
     \caption{Accelerometer training data. Plot of \texttt{step} againts \texttt{anglez} showing \texttt{event} state}
     \label{fig:accelerometerdata_series-038441c925bb_anglez}
 \end{figure*}
@@ -171,17 +172,90 @@ As shown in Figures \ref{fig:accelerometerdata_series-038441c925bb_anglez}, \ref
 
  \begin{figure*}[ht]
     \centering
-    \includegraphics[width=1\linewidth]{report/figures/038441c925bb_enmo.png}
+    \includegraphics[width=1\linewidth]{figures/038441c925bb_enmo.png}
     \caption{Accelerometer training data. Plot of \texttt{step} againts \texttt{enmo} showing \texttt{event} state}
     \label{fig:accelerometerdata_series-038441c925bb_enmo}
 \end{figure*}
 
 
     
-\subsection{Model}
+ \subsection{Model}
 
-\subsubsection{Random Forest}
+ \subsection{Random Forest}
 
+Alongside the implementation of the LSTM model, a Random Forest model will be incorporated to explore an alternative approach in this study. The selection of this model was predicated upon a comprehensive review of the literature conducted during the preliminary phases of this project. As demonstrated in prior cases, Random Forest has exhibited commendable performance and accuracy in the detection of sleep stages, rendering it a suitable method for comparison with the primary model to be developed in our project, namely LSTM.
+
+The Random Forest model is initialized with a predetermined number of $100$ estimators (\textit{n\textunderscore estimators}) and a minimum leaf sample size (\textit{min\textunderscore sample\textunderscore leaf}) set to $300$. These initial values are chosen for the purpose of assessing the model's efficiency and will be subject to subsequent adjustments based on its performance. Given the substantial volume of data in this scenario, it is anticipated that the minimum leaf sample size will remain unchanged, whereas the number of estimators will likely need to be increased to optimize performance.
+
+To ensure reproducibility, a seed is fixed by setting the \textit{random\textunderscore state} to a value generated randomly by using the random module in python. This measure allows the code to generate consistent results when executed with the same seed in the future. Additionally, the \textit{n\textunderscore jobs} parameter from the scikit-learn library is configured with a value of $-1$, enabling the utilization of all available processors on the device running the code.
+
+The model implementation is configured with an iterative approach to allow certain values in the initialization process to vary. This enables the acquisition of a greater variety of results in a controlled manner. Specifically, the parameters ``n\textunderscore estimators'' and ``random\textunderscore state'' are subject to variation. At the onset of the iterations, a random value between $1$ and $500$ is set as the seed for ``random \textunderscore state'' and this value remains constant for a total of 3 iterations. The value for ``n\textunderscore estimators'' starts at $100$, and with each subsequent iteration, it increases to $200$ and $300$, respectively. Subsequently, in the next iteration, the entire process is repeated. This approach generates sets of results with different seeds, and for each seed, a set of results is obtained for varying values of ``n\textunderscore estimators''. This methodology provides a diverse range of results for subsequent metric evaluation of the model, offering insights into its performance under different ``random\textunderscore state'' seeds and ``n\textunderscore estimators'' values.
+
+Let us delve into a more detailed examination of this iterative process. Let $\mathcal{X}_{RF}$ be a generalization of the input data received by the Random Forest model. The model is implemented through iterations, let $\mathcal{Y}_{RF_i}$ be a generalization of the model output data at the $i$th iteration. See the diagram below:
+
+\begin{center}
+  \begin{tikzpicture}
+    \node at (0,0) (XRF) {$\mathcal{X}_{RF}$} ;
+    \draw[thick, -stealth] (0.5,0) -- (1.5,0) ;
+    \draw[thick] (2,-0.5) -- (5,-0.5) -- (5,0.5) -- (2,0.5) -- (2,-0.5) ;
+    \node at (3.5,0.3) {\small{Random Forest}} ;
+    \node at (3.5,-0.3) {\small{$i$th iteration}} ;
+    \draw[thick, -stealth] (5.5,0) -- (6.5,0) ;
+    \node at (9.3,0) (YRF) {$\mathcal{Y}_{RF_i}(rs_i,Ne((i-1)[\bmod{3}]))$} ;
+  \end{tikzpicture}  
+\end{center}
+
+Where ($rs_i$,$Ne((i-1)[\bmod{3}])$) is the pair of elements that characterizes the output data at the $i$th iteration, formed by the random\textunderscore state and n\textunderscore estimators values respectively. Both elements are described as follows:
+
+Let $R_s = \{rs_1, rs_2, \ldots , rs_{N/3}\} \subset \mathds{Z}$ be the set of all different random\textunderscore states values.
+
+And $I = \{1, \ldots , N\} \subset \mathds{Z}$ the set of values taken by the iteration.
+
+Notice that $rs_j \in R_s$ is an arbitary value in $R_s$.
+
+In particular $rs_j \in [1,500] \forall j \in \mathds{N}$ such that $1 \leq j \leq \frac{N}{3}$.
+
+If $rs_i$ is the random\textunderscore state value for the $i$th iteration, then:
+
+\begin{equation*}
+  rs_i = rs_j \ \forall i \in I \text{ such that } i \leq 3j \wedge i > 3(j-1)
+\end{equation*}
+
+On another hand; $Ne((i-1)[\bmod{3}])$ is a function that gives the n\textunderscore estimators value for each iteration, such that:
+
+\[
+Ne((i-1)[\bmod{3}]) =
+\begin{cases}
+  100 \text{, if } (i-1)[\bmod{3}] = 0 \\
+  200 \text{, if } (i-1)[\bmod{3}] = 1 \\
+  300 \text{, if } (i-1)[\bmod{3}] = 2
+\end{cases}
+\]
+
+Finally, the generalization for the model output data in each iteration, along with irs characterization (that relies on the random\textunderscore states and n\textunderscore estimators values) is given by:
+
+\begin{equation*}
+  \mathcal{Y}_{RF_i}(rs_i,Ne((i-1)[\bmod{3}]))
+\end{equation*}
+
+This representation allow us to have a variety of data, which is treated after in the model evaluation phase. Mainly, we can separate it by the random\textunderscore state value or the n\textunderscore estimators one. Each classification is presented as follows:
+
+By the random\textunderscore state value:
+
+\begin{gather*}
+  \mathcal{Y}_{RF_1} = \{(rs_i,Ne((i-1)[\bmod{3})) \in \mathcal{Y}_{RF_i}, rs_i = rs_1\} \\
+  \mathcal{Y}_{RF_2} = \{(rs_i,Ne((i-1)[\bmod{3})) \in \mathcal{Y}_{RF_i}, rs_i = rs_2\} \\
+  \vdots \\
+  \mathcal{Y}_{RF_{N/3}} = \{(rs_i,Ne((i-1)[\bmod{3})) \in \mathcal{Y}_{RF_i}, rs_i = rs_{N/3}\}  
+\end{gather*}
+
+By the n\textunderscore estimators value:
+
+\begin{gather*}
+  \mathcal{Y}_{100} = \{(rs_i,Ne((i-1)[\bmod{3})) \in \mathcal{Y}_{RF_i}, Ne((i-1)[\bmod{3}]) = 0\} \\
+  \mathcal{Y}_{200} = \{(rs_i,Ne((i-1)[\bmod{3})) \in \mathcal{Y}_{RF_i}, Ne((i-1)[\bmod{3}]) = 1\} \\
+  \mathcal{Y}_{300} = \{(rs_i,Ne((i-1)[\bmod{3})) \in \mathcal{Y}_{RF_i}, Ne((i-1)[\bmod{3}]) = 2\}
+\end{gather*}
 
 \subsubsection{LSTM - Long Short Term Memory}
 
@@ -244,8 +318,61 @@ We are proposing a starting neural network architecture with the following block
   \label{fig:neuralnetwork}
 \end{figure}
 
+Let's explore in more detail the procedural aspects illustrated in the above figure. To achieve this objective, we will begin by generalizing the input data that the LSTM model is expected to receive. Let $\mathcal{X}_{input}$ be a seet with all the input data, such that:
 
-Is important to check if the impact to work directly with raw signals, the effects of the noise and the implications of not doing feature extraction do not affect performance in the training of the model. Subsequently, with the results of the first trials we might plan work more in data pre-processing if needed or even transition to more complex architectures. Other point of consideration is that one of the common problems is that the time-series sequences can be extremely long and therefore can be certain limitations with its performance \cite{Aggarwal2018}.
+Considering an arbitrary number of temporal sequences $N$, we have $\mathcal{X}_{input} = \{\mathcal{X}_1, \mathcal{X}_2, \ldots , \mathcal{X}_N \}$
+
+Where each temporal sequence is the set of data with equal \textit{series\textunderscore id} value. Considering an arbitrary number of events for the temporal sequence, $M$, we have: $\mathcal{X}_i = \{\mathcal{X}_{i1}, \mathcal{X}_{i2}, \ldots , \mathcal{X}_{iM}\}, \forall i \in \mathds{N}, 1 \leq i \leq N$
+
+Notice that $\mathcal{X}_{ij}, \forall j \in \mathds{N}, 1 \leq j \leq M$ is an arbitrary temporal sequence, with an arbitary number of characteristics, $n$, such that $\mathcal{X}_{ij} \in \mathds{R}^n, n \in \mathds{N}$, described as $\mathcal{X}_{ij} = (x_{ij1}, x_{ij2}, \ldots , x_{ijn})$
+
+Aditionally, notice that $x_{ijk}, \forall k \in \mathds{N}, 1 \leq k \leq n$ is the $k$th characteristic from the $j$th event in the $i$th temporal sequence from the set of input data $\mathcal{X}_{input}$
+
+This information can be express in another way using tensors, such that the input data set is a tensor $X_{input}$ such that $X_{input} \in \mathds{R}^{N \times M \times n}$ with each individual element denoted by $X_{i,j,k}$.
+
+During the feature engineering phase, three functions are applied to an arbitrary temporal sequence $\mathcal{X}_i$, denoted by $f_1$, $f_2$ and $f_3$. These functions introduce a determined number of characteristics to the events in the temporal sequence. We can make a generalization of the output in this process through a function composition, as follows:
+
+
+Let $\mathcal{XF}_i$ be the output from the feature engineering phase;
+\begin{equation*}
+  \mathcal{XF}_i = f_3(f_2(f_1(\mathcal{X}_i)))
+\end{equation*}
+
+A new set is created during the Data Preprocessing phase, $DP = \{ (\mathcal{XF}_{i,j},\mathcal{Y}_{i,j}) \}_{j=1}^M$, where $\mathcal{Y}_{i,j}$ is the objective vector with the respectively classe. As this is a binary classification problem, $\mathcal{Y}_{i,j} \in \mathds{R}$, with values of $0$ or $1$. The output of this phase will be denoted as $DPO = \{ (\mathcal{XF}'_{i,j},\mathcal{Y}'_{i,j}) \}_{j=1}^M$
+
+Both $\mathcal{XF}'_{i,j}$ and $\mathcal{Y}'_{i,j}$ elements are separated during the split data section.
+
+Let $\mathcal{X}' = \{ \mathcal{XF}'_{i,j} \}_{j=1}^M$ and $\mathcal{Y}'' = \{ \mathcal{Y}'_{i,j} \}_{j=1}^M$ be sets for the characteristics vectors and objetive variables respectively. Both sets are represented as tensors as follows:
+
+\begin{equation*}
+  \mathcal{X}' = (M,n); \mathcal{X}' \in \mathds{R}^{M \times n} \& \mathcal{Y}' = (M); \mathcal{Y}' \in \mathds{Z}^M
+\end{equation*}
+
+Still in the data splitting phase, distinct sets are generated for both the training data $T$ and the validation data $V$. These sets can be succinctly represented using tensors as follows:
+
+For the training data; $(\mathcal{X}'_t,\mathcal{Y}'_t)$, where $\mathcal{X}'_t \in \mathds{R}^{M_{Train}\times n}$ and $\mathcal{Y}'_t \in \mathds{Z}^{M_{Train}}$. Here $M_{Train}$ is the fraction of data asociated with the training process.
+
+For the validation data; $(\mathcal{X}'_v, \mathcal{Y}'_v)$ where $\mathcal{X}'_v \in \mathds{R}^{M_{Validation} \times n}$ and $\mathcal{Y}'_v \in \mathds{Z}^{M_{Validation}}$. Here $M_{Validation}$ is the fraction of data associated with the validation process. The data is aggregated and organized during the data loader phase, prior to its entry into the LSTM model as previously elucidated at the outset of this section.
+
+After the Dense phase, an outpur vector $O$ is generated. Due to the nature of this classification (binary), $O \in \mathds{R}^2$, such that:
+
+\begin{equation*}
+  O = (o_1, o_2)
+\end{equation*}
+
+Where $o_1, o_2 \in \mathds{R}$ each characterizing one of the two classes within this binary classification. Subsequently, a softmax function is applied to generate a probability distribution from the output vector, as detailed below:
+
+For each $o_i, i = 1,2$ value of the output vector $O$ the softmax function is presented as follows:
+
+\begin{equation*}
+  \text{softmax}(o_i) = \frac{e^{o_i}}{\sum_{h=1}^G e^{o_h}}
+\end{equation*}
+
+In this aprticular case, and taking $\text{softmax}(o_i) = sm(o_i)$ we have $sm(O) = (sm(o_1), sm(o_2))$
+
+Where $sm(o_i) \in [0,1], \forall i, i =1,2 \wedge \sum_{h=1}^2 sum(o_h) = 1$
+
+Finally, is important to check if the impact to work directly with raw signals, the effects of the noise and the implications of not doing feature extraction do not affect performance in the training of the model. Subsequently, with the results of the first trials we might plan work more in data pre-processing if needed or even transition to more complex architectures. Other point of consideration is that one of the common problems is that the time-series sequences can be extremely long and therefore can be certain limitations with its performance \cite{Aggarwal2018}.
 
 \subsection{Evaluation}
 

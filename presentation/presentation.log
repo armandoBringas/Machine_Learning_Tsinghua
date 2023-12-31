@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.10.10)  27 DEC 2023 20:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.10.10)  30 DEC 2023 08:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -166,8 +166,8 @@ thmetics.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
 \c@pgfmathroundto@lastzeros=\count285
 )))
-(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
-File: size12.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
@@ -965,6 +965,9 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@lastruleclass=\count359
 \@thisrulewidth=\dimen347
 )
+(/usr/share/texlive/texmf-dist/tex/latex/doublestroke/dsfont.sty
+Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
+)
 (./beamerthemesleep-states.sty (./beamerinnerthemesleep-states.sty)
 (./beamerouterthemesleep-states.sty) (./beamercolorthemesleep-states.sty))
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerfontthemeserif.sty)
@@ -979,24 +982,24 @@ LaTeX Info: Redefining \% on input line 23.
 )
 \openout1 = `presentation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1017,12 +1020,12 @@ LaTeX Font Info:    ... okay on input line 36.
 * \topmargin=-72.26999pt
 * \headheight=14.22636pt
 * \headsep=0.0pt
-* \topskip=12.0pt
+* \topskip=10.0pt
 * \footskip=14.22636pt
-* \marginparwidth=4.0pt
-* \marginparsep=10.0pt
+* \marginparwidth=3.0pt
+* \marginparsep=11.0pt
 * \columnsep=10.0pt
-* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -1054,7 +1057,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 36.
+Package hyperref Info: Link coloring OFF on input line 37.
 
 (./presentation.out) (./presentation.out)
 \@outlinefile=\write5
@@ -1085,23 +1088,23 @@ Dictionary: translator-numbers-dictionary, Language: English
 ry-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \. on input line 36.
-LaTeX Info: Redefining \% on input line 36.
+LaTeX Info: Redefining \. on input line 37.
+LaTeX Info: Redefining \% on input line 37.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \microtypecontext on input line 36.
-Package microtype Info: Applying patch `item' on input line 36.
-Package microtype Info: Applying patch `toc' on input line 36.
-Package microtype Info: Applying patch `eqnum' on input line 36.
-Package microtype Info: Applying patch `footnote' on input line 36.
+LaTeX Info: Redefining \microtypecontext on input line 37.
+Package microtype Info: Applying patch `item' on input line 37.
+Package microtype Info: Applying patch `toc' on input line 37.
+Package microtype Info: Applying patch `eqnum' on input line 37.
+Package microtype Info: Applying patch `footnote' on input line 37.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 36.
+LaTeX Info: Redefining \showhyphens on input line 37.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1113,7 +1116,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 <tsinghua_university.png, id=15, 808.52063pt x 322.20375pt>
 File: tsinghua_university.png Graphic file (type png)
 <use tsinghua_university.png>
-Package pdftex.def Info: tsinghua_university.png  used on input line 40.
+Package pdftex.def Info: tsinghua_university.png  used on input line 41.
 (pdftex.def)             Requested size: 65.55249pt x 26.12097pt.
  [1
 
@@ -1121,16 +1124,157 @@ Package pdftex.def Info: tsinghua_university.png  used on input line 40.
 ]
 File: tsinghua_university.png Graphic file (type png)
 <use tsinghua_university.png>
-Package pdftex.def Info: tsinghua_university.png  used on input line 48.
+Package pdftex.def Info: tsinghua_university.png  used on input line 56.
 (pdftex.def)             Requested size: 65.55249pt x 26.12097pt.
  [2
 
 ]
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+(RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msa on input line 82.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 82.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+esint on input line 8
+2.
+
+(/usr/share/texlive/texmf-dist/tex/latex/esint/uesint.fd
+File: uesint.fd 
+)
 File: tsinghua_university.png Graphic file (type png)
 <use tsinghua_university.png>
-Package pdftex.def Info: tsinghua_university.png  used on input line 55.
+Package pdftex.def Info: tsinghua_university.png  used on input line 82.
 (pdftex.def)             Requested size: 65.55249pt x 26.12097pt.
  [3
+
+]
+
+LaTeX Warning: Citation `Migueles2019GGIR' on page 4 undefined on input line 95
+.
+
+
+! LaTeX Error: Environment figure* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.95 \end{frame}
+                
+? 
+<038441c925bb_anglez.png, id=152, 1176.5556pt x 212.4738pt>
+File: 038441c925bb_anglez.png Graphic file (type png)
+<use 038441c925bb_anglez.png>
+Package pdftex.def Info: 038441c925bb_anglez.png  used on input line 95.
+(pdftex.def)             Requested size: 307.28987pt x 55.49152pt.
+
+! Package caption Error: \caption outside float.
+
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.95 \end{frame}
+                
+? 
+
+! LaTeX Error: \begin{minipage} on input line 95 ended by \end{figure*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.95 \end{frame}
+                
+? 
+File: tsinghua_university.png Graphic file (type png)
+<use tsinghua_university.png>
+Package pdftex.def Info: tsinghua_university.png  used on input line 95.
+(pdftex.def)             Requested size: 65.55249pt x 26.12097pt.
+[4
+
+ <./038441c925bb_anglez.png>]
+File: tsinghua_university.png Graphic file (type png)
+<use tsinghua_university.png>
+Package pdftex.def Info: tsinghua_university.png  used on input line 118.
+(pdftex.def)             Requested size: 65.55249pt x 26.12097pt.
+ [5
+
+]
+File: tsinghua_university.png Graphic file (type png)
+<use tsinghua_university.png>
+Package pdftex.def Info: tsinghua_university.png  used on input line 134.
+(pdftex.def)             Requested size: 65.55249pt x 26.12097pt.
+ [6
+
+]
+LaTeX Font Info:    Trying to load font information for U+dsrom on input line 1
+60.
+
+(/usr/share/texlive/texmf-dist/tex/latex/doublestroke/Udsrom.fd
+File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
+)
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/dsrom/m/n/10'
+(microtype)             (new value: 10.0pt) on input line 160.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/dsrom/m/n/7'
+(microtype)             (new value: 7.0pt) on input line 160.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/dsrom/m/n/5'
+(microtype)             (new value: 5.0pt) on input line 160.
+File: tsinghua_university.png Graphic file (type png)
+<use tsinghua_university.png>
+Package pdftex.def Info: tsinghua_university.png  used on input line 160.
+(pdftex.def)             Requested size: 65.55249pt x 26.12097pt.
+ [7
+
+]
+File: tsinghua_university.png Graphic file (type png)
+<use tsinghua_university.png>
+Package pdftex.def Info: tsinghua_university.png  used on input line 183.
+(pdftex.def)             Requested size: 65.55249pt x 26.12097pt.
+ [8
+
+]
+File: tsinghua_university.png Graphic file (type png)
+<use tsinghua_university.png>
+Package pdftex.def Info: tsinghua_university.png  used on input line 191.
+(pdftex.def)             Requested size: 65.55249pt x 26.12097pt.
+
+[9
+
+]
+File: tsinghua_university.png Graphic file (type png)
+<use tsinghua_university.png>
+Package pdftex.def Info: tsinghua_university.png  used on input line 199.
+(pdftex.def)             Requested size: 65.55249pt x 26.12097pt.
+ [10
+
+]
+No file presentation.bbl.
+
+Overfull \vbox (3.50562pt too high) detected at line 212
+ []
+
+File: tsinghua_university.png Graphic file (type png)
+<use tsinghua_university.png>
+Package pdftex.def Info: tsinghua_university.png  used on input line 212.
+(pdftex.def)             Requested size: 65.55249pt x 26.12097pt.
+[11
 
 ]
 \tf@nav=\write6
@@ -1146,23 +1290,43 @@ Package pdftex.def Info: tsinghua_university.png  used on input line 55.
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
 )
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 30772 strings out of 476091
- 605215 string characters out of 5794080
- 1861330 words of memory out of 5000000
- 50540 multiletter control sequences out of 15000+600000
- 515254 words of font info for 52 fonts, out of 8000000 for 9000
+ 31328 strings out of 476091
+ 617718 string characters out of 5794080
+ 1867330 words of memory out of 5000000
+ 50981 multiletter control sequences out of 15000+600000
+ 522525 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,14n,122p,1009b,878s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb>
-Output written on presentation.pdf (3 pages, 207912 bytes).
+ 128i,15n,122p,1009b,925s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss1
+2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/doublestroke/dsrom10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/symbols/msam7.pfb>
+Output written on presentation.pdf (11 pages, 510922 bytes).
 PDF statistics:
- 134 PDF objects out of 1000 (max. 8388607)
- 102 compressed objects within 2 object streams
- 7 named destinations out of 1000 (max. 500000)
- 12414 words of extra memory for PDF output out of 14400 (max. 10000000)
+ 568 PDF objects out of 1000 (max. 8388607)
+ 421 compressed objects within 5 object streams
+ 25 named destinations out of 1000 (max. 500000)
+ 29199 words of extra memory for PDF output out of 29859 (max. 10000000)
 
