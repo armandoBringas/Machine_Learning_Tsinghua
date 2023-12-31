@@ -453,6 +453,9 @@ With $APF$, $SPC$ and $SN$ the average precision function, the specificity and t
 
 \section{Results}
 
+We implemented models in Python using PyTorch for LSTM and scikit-learn for Random Forest. Due to computing performance implications, we conducted training and evaluation on a reduced dataset consisting of 35 recordings out of the 500 recordings provided in the Kaggle competition \cite{child-mind-institute-detect-sleep-states}. Random Forest slightly outperformed LSTM in the Confusion Matrix for Accuracy, Recall, and Specificity metrics, as shown in Tables \ref{tab:random_forest_confusion_matrix}, \ref{tab:lstm_confusion_matrix}, and \ref{tab:model_comparison}. However, concerning model training computational performance, Random Forest took approximately 1 hour to train a single iteration, compared to LSTM, which took approximately 10 minutes to train all defined epochs.
+
+
 \begin{table}[h]
     \centering
     \caption{Random Forest Confusion Matrix}

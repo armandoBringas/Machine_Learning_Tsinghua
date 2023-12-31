@@ -184,6 +184,10 @@ to be increased to optimize performance. An iteration process is set along the R
 \begin{frame}
     \frametitle{Results}
     \begin{block}{}
+        Due to computing performance implications we perform training and evaluation in a reduced dataset consisting in 35 recording out of the 500 recording provided as well by the Kaggle competition.
+    \end{block}
+    
+    \begin{block}{}
         \begin{table}[h]
             \centering
             \caption{Random Forest Confusion Matrix}
@@ -215,6 +219,9 @@ to be increased to optimize performance. An iteration process is set along the R
 \end{frame}
 
 \begin{frame}
+    \begin{block}{}
+        Random Forest slightly outperformed LSTM in the Confusion Matrix for Accuracy, Recall, and Specificity metrics. However, concerning model training computational performance, Random Forest took approximately 1 hour to train a single iteration, compared to LSTM, which took approximately 10 minutes to train all defined epochs.
+    \end{block}
     \frametitle{Results}
     \begin{block}{}
         \begin{table}[h]
