@@ -1,0 +1,19 @@
+\mode<presentation>
+
+%% Frame title %%
+
+\defbeamertemplate*{frametitle}{sleep-states}[1][]{
+  \begin{beamercolorbox}[center,wd=\paperwidth,sep=20pt,rounded=true,#1]{frametitle}
+    \begin{tikzpicture}
+      \ifx\insertframesubtitle\@empty%
+      \node[white,font=\large] at (0.5\paperwidth,0.95\paperheight){\insertframetitle};
+      \else%
+      \node[white,font=\large] at (0.5\paperwidth,0.95\paperheight){\insertframetitle};%
+      \node[white,font=\small] at (0.5\paperwidth,0.9\paperheight){\insertframesubtitle};
+      \fi
+    \end{tikzpicture}
+  \end{beamercolorbox}
+}
+
+
+\mode<all>
