@@ -41,7 +41,7 @@
 \usepackage{tikz}
 
 
-\title{A Deep Learning approach to detect sleep state - Midterm Report}
+\title{A Deep Learning approach to detect sleep state - Final Report}
 
 
 % The \author macro works with any number of authors. There are two commands
@@ -453,13 +453,71 @@ With $APF$, $SPC$ and $SN$ the average precision function, the specificity and t
 
 \section{Results}
 
+We implemented models in Python using PyTorch for LSTM and scikit-learn for Random Forest. Due to computing performance implications, we conducted training and evaluation on a reduced dataset consisting of 35 recordings out of the 500 recordings provided in the Kaggle competition \cite{child-mind-institute-detect-sleep-states}. Random Forest slightly outperformed LSTM in the Confusion Matrix for Accuracy, Recall, and Specificity metrics, as shown in Tables \ref{tab:random_forest_confusion_matrix}, \ref{tab:lstm_confusion_matrix}, and \ref{tab:model_comparison}. However, concerning model training computational performance, Random Forest took approximately 1 hour to train a single iteration, compared to LSTM, which took approximately 10 minutes to train all defined epochs.
+
+
+\begin{table}[h]
+    \centering
+    \caption{Random Forest Confusion Matrix}
+    \label{tab:random_forest_confusion_matrix}
+    \begin{tabular}{lcc}
+        \hline
+        \textbf{Actual / Predicted} & \textbf{Predicted Negative} & \textbf{Predicted Positive} \\
+        \hline
+        \textbf{Actual Negative} & 786677 (31.38\%) & 56959 (2.27\%) \\
+        \textbf{Actual Positive} & 70514 (2.81\%) & 1592674 (63.53\%) \\
+        \hline
+    \end{tabular}
+\end{table}
+
+
+\begin{table}[h]
+    \centering
+    \caption{LSTM Confusion Matrix}
+    \label{tab:lstm_confusion_matrix}
+    \begin{tabular}{lcc}
+        \hline
+        \textbf{Actual / Predicted} & \textbf{Predicted Negative} & \textbf{Predicted Positive} \\
+        \hline
+        \textbf{Actual Negative} & 813470 (32.45\%) & 30166 (1.20\%) \\
+        \textbf{Actual Positive} & 178414 (7.12\%) & 1484774 (59.23\%) \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \caption{Model Comparison}
+    \label{tab:model_comparison}
+    \begin{tabular}{lccccc}
+        \hline
+        \textbf{Metric} & \textbf{Random Forest} & & \textbf{LSTM} & \\
+        \cline{2-5}
+        Accuracy & 0.95 & & 0.92 & \\
+        Recall & 0.96 & & 0.90 & \\
+        Specificity & 0.93 & & 0.97 & \\
+        Average Precision & 0.99 & & 0.99 & \\
+        Partial Evaluation & 0.96 & & 0.95 & \\
+        \hline
+    \end{tabular}
+\end{table}
+
+
 One challenge we have noticed is that the data for sleep state detection can originate from various types of devices, such as optical plethysmography and accelerometer signals \cite{Beattie_2017}\cite{Fedorin2019}, depending on the research context. Specifically, there are instances where the data is derived from accelerometers, among other sensor types. Consequently, the methods utilized in each case act as a baseline for their respective projects. This implies that it may not be feasible to develop a universal solution that generalizes across data from different sources.
 
-Another challenge involves initiating trials to implement deep learning techniques, beginning with Long Short-Term Memory Networks (LSTM). We need to check if the impact to work directly with raw signals, the effects of the noise and the implications of not doing feature extraction. Subsequently, we plan to transition to more complex architectures or even develop our own architecture, incorporating attention-based mechanisms.
+Another challenge involves initiating trials to implement deep learning techniques, beginning with Long Short-Term Memory Networks (LSTM). We need to check if the impact to work directly with raw signals, the effects of the noise and the implications of not doing feature extraction. Subsequently, we plan to transition to more complex architectures or even develop our own architecture, by for example, incorporating attention-based mechanisms.
 
 \section{Conclusion}
 
-To address this challenge, we want to continue over implementing deep learning techniques, despite evidence from \cite{Sundararajan2021} indicating that traditional methods such as Random Forest outperform ResNets. Our motivation stems from the insights gained from \cite{Zhang2023}, where the authors present the Time-Series Neural Network (TNN). This method, which incorporates a Kernel Filter alongside a Time Attention Mechanism \cite{Zhang2023}, has demonstrated high accuracy in forecasting, will be interesting to evaluate their perfomance on classification. In our specific context, we are in the process of evaluating whether Long Short-Term Memory Networks (LSTM), Graph Neural Networks (GNN), or potentially an attention-based mechanism would be most suitable for our application.
+In this study, we explored the application of machine learning models, specifically Random Forest and Logn Short-Term Memory Networks (LSTM), for sleep state detection using data provided by the Child Mind Institute \cite{child-mind-institute-detect-sleep-states} in a Kaggle competition. Our analysis involved a reduced dataset of 35 recordings from the Kaggle competition due to computing perfomance implications, as mentioned above in the results section.
+
+Our results indicate, in summation, that the sleep state detection utilizing Random Forest and Long Short-Term Memory Networks (LSTM) reveals a nuanced comparison between the two models. While Random Forest shows a better perfomance in terms of accuracy and recall metrics, it is imperative to consider the computational efficiency inherent in model training.
+
+Despite the evident variations in the time required for training, where the LSTM model shows better perfomance, our comprehensive evaluation indicates that, from a general perspective, the overall effciency of both Random Forest and LSTM models converges closely. Taking into account these factors, the decision to employ either model should be based on a thorough evaluation that considers both performance metrics and computational aspects.
+
+To continually address this challenge, we want to continue over implementing deep learning techniques, despite evidence from \cite{Sundararajan2021} indicating that traditional methods such as Random Forest outperform ResNets, which has been seen at a certain level on this project. Our motivation stems from the insights gained from \cite{Zhang2023}, where the authors present the Time-Series Neural Network (TNN). This method, which incorporates a Kernel Filter alongside a Time Attention Mechanism \cite{Zhang2023}, has demonstrated high accuracy in forecasting, will be interesting to evaluate their perfomance on classification. A curious approach would be the one of evaluating whether Long Short-Term Memory Networks (LSTM), that has been developed in this project alongside Random Forest, Graph Neural Networks (GNN), or potentially an attention-based mechanism would be most suitable for implementation into detecting sleep states.
+
+In conclusion, our findings underscore the importance of considering both performance metrics and computational efficiency when selecting a model for sleep state detection. Moreover, our exploration underscores the intricate nature of sleep state detection, compounded by the diverse origins of data stemming from various devices, making data sources a relevant point to take into consideration when selecting a model. Additionally, the need for context-specific solutions and the exploration of advanced architectures indicate exciting avenues for future research in this field, enhancing accessibility to personalized care tailored to the unique characteristics of each patient in the study of sleep.
 
 
 {

@@ -1,6 +1,5 @@
 \documentclass[10pt]{beamer}
 \usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
 \usepackage{tikz}
 \usepackage{xcolor}
 \usepackage{graphicx}
@@ -42,10 +41,10 @@
 
 \begin{frame}
   \frametitle{Introduction}
-  \begin{block}{Kaggle competition}
-    This paper presents a project proposal rooted in the practical application of a Kaggle competition,
+  \begin{block}{Sleep States Detection}
+    Our project proposal rooted in the practical application of a Kaggle competition,
 aimed at addressing a challenge in pediatric health and neuroscience: the identification of sleep states
-in children through wrist-worn accelerometer data.
+in children through wrist-worn accelerometer data \cite{child-mind-institute-detect-sleep-states}.
   \end{block}
   \begin{block}{Project implications}
     The significance of this project lies in its potential to deepen our understanding of sleep and to provide
@@ -70,11 +69,11 @@ of each child.
     \item Accelerometer data
     \item Actigraphy and sleep diaries
     \item Optical plethysmography
-    \item Eelectrocardiography
+    \item Electrocardiography
     \item Electroencephalography
     \item Multi channel polysomnogram
       \begin{itemize}
-      \item Electrooculography
+      \item Electroculography
       \item Electromyography
       \end{itemize}
     \end{itemize}
@@ -182,19 +181,72 @@ to be increased to optimize performance. An iteration process is set along the R
   \end{block}
 \end{frame}
 
-
 \begin{frame}
-  \frametitle{Results}
-  \begin{block}{}
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-  \end{block} 
+    \frametitle{Results}
+    \begin{block}{}
+        Due to computing performance implications we perform training and evaluation in a reduced dataset consisting in 35 recording out of the 500 recording provided as well by the Kaggle competition.
+    \end{block}
+    
+    \begin{block}{}
+        \begin{table}[h]
+            \centering
+            \caption{Random Forest Confusion Matrix}
+            \label{tab:random_forest_confusion_matrix}
+            \begin{tabular}{lcc}
+                \hline
+                \textbf{Actual / Predicted} & \textbf{Predicted Negative} & \textbf{Predicted Positive} \\
+                \hline
+                \textbf{Actual Negative} & 786677 (31.38\%) & 56959 (2.27\%) \\
+                \textbf{Actual Positive} & 70514 (2.81\%) & 1592674 (63.53\%) \\
+                \hline
+            \end{tabular}
+        \end{table}
+
+        \begin{table}[h]
+            \centering
+            \caption{LSTM Confusion Matrix}
+            \label{tab:lstm_confusion_matrix}
+            \begin{tabular}{lcc}
+                \hline
+                \textbf{Actual / Predicted} & \textbf{Predicted Negative} & \textbf{Predicted Positive} \\
+                \hline
+                \textbf{Actual Negative} & 813470 (32.45\%) & 30166 (1.20\%) \\
+                \textbf{Actual Positive} & 178414 (7.12\%) & 1484774 (59.23\%) \\
+                \hline
+            \end{tabular}
+        \end{table}
+    \end{block} 
 \end{frame}
 
+\begin{frame}
+    \begin{block}{}
+        Random Forest slightly outperformed LSTM in the Confusion Matrix for Accuracy, Recall, and Specificity metrics. However, concerning model training computational performance, Random Forest took approximately 1 hour to train a single iteration, compared to LSTM, which took approximately 10 minutes to train all defined epochs.
+    \end{block}
+    \frametitle{Results}
+    \begin{block}{}
+        \begin{table}[h]
+            \centering
+            \caption{Model Comparison}
+            \label{tab:model_comparison}
+            \begin{tabular}{lccccc}
+                \hline
+                \textbf{Metric} & \textbf{Random Forest} & & \textbf{LSTM} & \\
+                \cline{2-5}
+                Accuracy & 0.95 & & 0.92 & \\
+                Recall & 0.96 & & 0.90 & \\
+                Specificity & 0.96 & & 0.97 & \\
+                Average Precision & 0.99 & & 0.99 & \\
+                Partial Evaluation & 0.96 & & 0.95 & \\
+                \hline
+            \end{tabular}
+        \end{table}
+    \end{block} 
+\end{frame}
 
 \begin{frame}
   \frametitle{Conclusion}
   \begin{block}{}
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+    In conclusion, our findings underscore the importance of considering both performance metrics and computational efficiency when selecting a model for sleep state detection. Moreover, our exploration underscores the intricate nature of sleep state detection, compounded by the diverse origins of data stemming from various devices, making data sources a relevant point to take into consideration when selecting a model. Additionally, the need for context-specific solutions and the exploration of advanced architectures indicate exciting avenues for future research in this field, enhancing accessibility to personalized care tailored to the unique characteristics of each patient in the study of sleep.
   \end{block} 
 \end{frame}
 

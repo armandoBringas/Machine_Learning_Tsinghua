@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.10.10)  30 DEC 2023 08:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.10.10)  1 JAN 2024 18:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -704,30 +704,6 @@ Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks45
 \inpenc@posthook=\toks46
 )
-(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2022/12/26 3.84 The Babel package
-\babel@savecnt=\count334
-\U@D=\dimen294
-\l@unhyphenated=\language87
-
-(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
-\bbl@readstream=\read3
-LaTeX Info: Redefining \textlatin on input line 4072.
-\bbl@dirlevel=\count335
-
-(/usr/share/texlive/texmf-dist/tex/generic/babel-spanish/spanish.ldf
-Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
-\es@quottoks=\toks47
-\es@quotdepth=\count336
-Package babel Info: Making " an active character on input line 570.
-Package babel Info: Making . an active character on input line 675.
-Package babel Info: Making < an active character on input line 722.
-Package babel Info: Making > an active character on input line 722.
-))
-(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/es/babel-spanish.tex
-Package babel Info: Importing font and identification data for spanish
-(babel)             from babel-es.ini. Reported on input line 11.
-)
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 Package: pgf 2023-01-15 v3.1.10 (3.1.10)
@@ -741,8 +717,8 @@ File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
 .sty
 Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
-\pgf@nodesepstart=\dimen295
-\pgf@nodesepend=\dimen296
+\pgf@nodesepstart=\dimen294
+\pgf@nodesepend=\dimen295
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
 .sty
@@ -750,10 +726,10 @@ Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
 )) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
-\pgffor@iter=\dimen297
-\pgffor@skip=\dimen298
-\pgffor@stack=\toks48
-\pgffor@toks=\toks49
+\pgffor@iter=\dimen296
+\pgffor@skip=\dimen297
+\pgffor@stack=\toks47
+\pgffor@toks=\toks48
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2023-01-15 v3.1.10 (3.1.10)
@@ -761,33 +737,33 @@ Package: tikz 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
 .code.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count337
-\pgfplotmarksize=\dimen299
+\pgf@plot@mark@count=\count334
+\pgfplotmarksize=\dimen298
 )
-\tikz@lastx=\dimen300
-\tikz@lasty=\dimen301
-\tikz@lastxsaved=\dimen302
-\tikz@lastysaved=\dimen303
-\tikz@lastmovetox=\dimen304
-\tikz@lastmovetoy=\dimen305
-\tikzleveldistance=\dimen306
-\tikzsiblingdistance=\dimen307
+\tikz@lastx=\dimen299
+\tikz@lasty=\dimen300
+\tikz@lastxsaved=\dimen301
+\tikz@lastysaved=\dimen302
+\tikz@lastmovetox=\dimen303
+\tikz@lastmovetoy=\dimen304
+\tikzleveldistance=\dimen305
+\tikzsiblingdistance=\dimen306
 \tikz@figbox=\box77
 \tikz@figbox@bg=\box78
 \tikz@tempbox=\box79
 \tikz@tempbox@bg=\box80
-\tikztreelevel=\count338
-\tikznumberofchildren=\count339
-\tikznumberofcurrentchild=\count340
-\tikz@fig@count=\count341
+\tikztreelevel=\count335
+\tikznumberofchildren=\count336
+\tikznumberofcurrentchild=\count337
+\tikz@fig@count=\count338
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count342
-\pgfmatrixcurrentcolumn=\count343
-\pgf@matrix@numberofcolumns=\count344
+\pgfmatrixcurrentrow=\count339
+\pgfmatrixcurrentcolumn=\count340
+\pgf@matrix@numberofcolumns=\count341
 )
-\tikz@expandcount=\count345
+\tikz@expandcount=\count342
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarytopaths.code.tex
@@ -796,31 +772,31 @@ File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@colwidth=\skip65
-\multirow@cntb=\count346
+\multirow@cntb=\count343
 \multirow@dima=\skip66
-\bigstrutjot=\dimen308
+\bigstrutjot=\dimen307
 )
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2022/03/01 v3.6b Customizing captions (AR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
-\caption@tempdima=\dimen309
-\captionmargin=\dimen310
-\caption@leftmargin=\dimen311
-\caption@rightmargin=\dimen312
-\caption@width=\dimen313
-\caption@indent=\dimen314
-\caption@parindent=\dimen315
-\caption@hangindent=\dimen316
+\caption@tempdima=\dimen308
+\captionmargin=\dimen309
+\caption@leftmargin=\dimen310
+\caption@rightmargin=\dimen311
+\caption@width=\dimen312
+\caption@indent=\dimen313
+\caption@parindent=\dimen314
+\caption@hangindent=\dimen315
 Package caption Info: beamer document class detected.
 
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption-beamer.sto
 File: caption-beamer.sto 2022/01/06 v2.0c Adaption of the caption package to th
 e beamer document classes (AR)
 ))
-\c@caption@flags=\count347
-\c@continuedfloat=\count348
+\c@caption@flags=\count344
+\c@continuedfloat=\count345
 Package caption Info: hyperref package is loaded.
 Package caption Info: Hyperref support is turned off
 (caption)             because hyperref has stopped early.
@@ -830,17 +806,17 @@ Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 
 (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
-\col@sep=\dimen317
+\col@sep=\dimen316
 \ar@mcellbox=\box81
-\extrarowheight=\dimen318
-\NC@list=\toks50
+\extrarowheight=\dimen317
+\NC@list=\toks49
 \extratabsurround=\skip67
 \backup@length=\skip68
 \ar@cellbox=\box82
 )
-\rotheadsize=\dimen319
-\c@nlinenum=\count349
-\TeXr@lab=\toks51
+\rotheadsize=\dimen318
+\c@nlinenum=\count346
+\TeXr@lab=\toks50
 )
 (/usr/share/texlive/texmf-dist/tex/latex/esint/esint.sty
 Package: esint 
@@ -854,10 +830,10 @@ Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
 
 (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
 (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks52
-\XKV@tempa@toks=\toks53
+\XKV@toks=\toks51
+\XKV@tempa@toks=\toks52
 )
-\XKV@depth=\count350
+\XKV@depth=\count347
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjcalc.sty
@@ -871,44 +847,44 @@ Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
 Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
 \collectedbox=\box83
 )
-\tc@llx=\dimen320
-\tc@lly=\dimen321
-\tc@urx=\dimen322
-\tc@ury=\dimen323
+\tc@llx=\dimen319
+\tc@lly=\dimen320
+\tc@urx=\dimen321
+\tc@ury=\dimen322
 Package trimclip Info: Using driver 'tc-pdftex.def'.
 
 (/usr/share/texlive/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
 File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
 ))
-\adjbox@Width=\dimen324
-\adjbox@Height=\dimen325
-\adjbox@Depth=\dimen326
-\adjbox@Totalheight=\dimen327
-\adjbox@pwidth=\dimen328
-\adjbox@pheight=\dimen329
-\adjbox@pdepth=\dimen330
-\adjbox@ptotalheight=\dimen331
+\adjbox@Width=\dimen323
+\adjbox@Height=\dimen324
+\adjbox@Depth=\dimen325
+\adjbox@Totalheight=\dimen326
+\adjbox@pwidth=\dimen327
+\adjbox@pheight=\dimen328
+\adjbox@pdepth=\dimen329
+\adjbox@ptotalheight=\dimen330
 
 (/usr/share/texlive/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
-\c@checkoddpage=\count351
+\c@checkoddpage=\count348
 )
 (/usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box84
-\sift@deathcycles=\count352
-\@vwid@loff=\dimen332
-\@vwid@roff=\dimen333
+\sift@deathcycles=\count349
+\@vwid@loff=\dimen331
+\@vwid@roff=\dimen332
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/tabularht.sty
 Package: tabularht 2019/12/29 v2.7 Tabular with height specified (HO)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count353
-\float@exts=\toks54
+\c@float@type=\count350
+\float@exts=\toks53
 \float@box=\box85
-\@float@everytoks=\toks55
+\@float@everytoks=\toks54
 \@floatcapt=\box86
 )
 (/usr/share/texlive/texmf-dist/tex/latex/units/nicefrac.sty
@@ -922,16 +898,16 @@ Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
 Package: microtype 2022/06/23 v3.0f Micro-typographical refinements (RS)
-\MT@toks=\toks56
+\MT@toks=\toks55
 \MT@tempbox=\box87
-\MT@count=\count354
+\MT@count=\count351
 LaTeX Info: Redefining \noprotrusionifhmode on input line 1045.
 LaTeX Info: Redefining \leftprotrusion on input line 1046.
 LaTeX Info: Redefining \rightprotrusion on input line 1056.
 LaTeX Info: Redefining \textls on input line 1234.
-\MT@outer@kern=\dimen334
+\MT@outer@kern=\dimen333
 LaTeX Info: Redefining \textmicrotypecontext on input line 1858.
-\MT@listname@count=\count355
+\MT@listname@count=\count352
 
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def
 File: microtype-pdftex.def 2022/06/23 v3.0f Definitions specific to pdftex (RS)
@@ -947,23 +923,23 @@ File: microtype.cfg 2022/06/23 v3.0f microtype main configuration file (RS)
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen335
-\lightrulewidth=\dimen336
-\cmidrulewidth=\dimen337
-\belowrulesep=\dimen338
-\belowbottomsep=\dimen339
-\aboverulesep=\dimen340
-\abovetopsep=\dimen341
-\cmidrulesep=\dimen342
-\cmidrulekern=\dimen343
-\defaultaddspace=\dimen344
-\@cmidla=\count356
-\@cmidlb=\count357
-\@aboverulesep=\dimen345
-\@belowrulesep=\dimen346
-\@thisruleclass=\count358
-\@lastruleclass=\count359
-\@thisrulewidth=\dimen347
+\heavyrulewidth=\dimen334
+\lightrulewidth=\dimen335
+\cmidrulewidth=\dimen336
+\belowrulesep=\dimen337
+\belowbottomsep=\dimen338
+\aboverulesep=\dimen339
+\abovetopsep=\dimen340
+\cmidrulesep=\dimen341
+\cmidrulekern=\dimen342
+\defaultaddspace=\dimen343
+\@cmidla=\count353
+\@cmidlb=\count354
+\@aboverulesep=\dimen344
+\@belowrulesep=\dimen345
+\@thisruleclass=\count355
+\@lastruleclass=\count356
+\@thisrulewidth=\dimen346
 )
 (/usr/share/texlive/texmf-dist/tex/latex/doublestroke/dsfont.sty
 Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
@@ -973,33 +949,30 @@ Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerfontthemeserif.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count360
+\l__color_backend_stack_int=\count357
 \l__pdf_internal_box=\box88
 )
-(./presentation.aux
-LaTeX Info: Redefining \. on input line 23.
-LaTeX Info: Redefining \% on input line 23.
-)
+(./presentation.aux)
 \openout1 = `presentation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1037,17 +1010,17 @@ LaTeX Font Info:    ... okay on input line 37.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count361
-\scratchdimen=\dimen348
+\scratchcounter=\count358
+\scratchdimen=\dimen347
 \scratchbox=\box89
-\nofMPsegments=\count362
-\nofMParguments=\count363
-\everyMPshowfont=\toks57
-\MPscratchCnt=\count364
-\MPscratchDim=\dimen349
-\MPnumerator=\count365
-\makeMPintoPDFobject=\count366
-\everyMPtoPDFconversion=\toks58
+\nofMPsegments=\count359
+\nofMParguments=\count360
+\everyMPshowfont=\toks56
+\MPscratchCnt=\count361
+\MPscratchDim=\dimen348
+\MPnumerator=\count362
+\makeMPintoPDFobject=\count363
+\everyMPtoPDFconversion=\toks57
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1057,7 +1030,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 37.
+Package hyperref Info: Link coloring OFF on input line 36.
 
 (./presentation.out) (./presentation.out)
 \@outlinefile=\write5
@@ -1088,23 +1061,21 @@ Dictionary: translator-numbers-dictionary, Language: English
 ry-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \. on input line 37.
-LaTeX Info: Redefining \% on input line 37.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \microtypecontext on input line 37.
-Package microtype Info: Applying patch `item' on input line 37.
-Package microtype Info: Applying patch `toc' on input line 37.
-Package microtype Info: Applying patch `eqnum' on input line 37.
-Package microtype Info: Applying patch `footnote' on input line 37.
+LaTeX Info: Redefining \microtypecontext on input line 36.
+Package microtype Info: Applying patch `item' on input line 36.
+Package microtype Info: Applying patch `toc' on input line 36.
+Package microtype Info: Applying patch `eqnum' on input line 36.
+Package microtype Info: Applying patch `footnote' on input line 36.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 37.
+LaTeX Info: Redefining \showhyphens on input line 36.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1116,24 +1087,27 @@ Package microtype Info: Loading generic protrusion settings for font family
 <tsinghua_university.png, id=15, 808.52063pt x 322.20375pt>
 File: tsinghua_university.png Graphic file (type png)
 <use tsinghua_university.png>
-Package pdftex.def Info: tsinghua_university.png  used on input line 41.
+Package pdftex.def Info: tsinghua_university.png  used on input line 40.
 (pdftex.def)             Requested size: 65.55249pt x 26.12097pt.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./tsinghua_university.png>
 ]
+Overfull \hbox (238.239pt too wide) in paragraph at lines 55--55
+\OT1/cmss/m/n/10 (-20) [[]].  
+ []
+
 File: tsinghua_university.png Graphic file (type png)
 <use tsinghua_university.png>
-Package pdftex.def Info: tsinghua_university.png  used on input line 56.
+Package pdftex.def Info: tsinghua_university.png  used on input line 55.
 (pdftex.def)             Requested size: 65.55249pt x 26.12097pt.
- [2
+[2
 
-]
-(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+] (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 82.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 81.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -1142,7 +1116,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 82.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 81.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1152,22 +1126,18 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Trying to load font information for U+esint on input line 8
-2.
+1.
 
 (/usr/share/texlive/texmf-dist/tex/latex/esint/uesint.fd
 File: uesint.fd 
 )
 File: tsinghua_university.png Graphic file (type png)
 <use tsinghua_university.png>
-Package pdftex.def Info: tsinghua_university.png  used on input line 82.
+Package pdftex.def Info: tsinghua_university.png  used on input line 81.
 (pdftex.def)             Requested size: 65.55249pt x 26.12097pt.
  [3
 
 ]
-
-LaTeX Warning: Citation `Migueles2019GGIR' on page 4 undefined on input line 95
-.
-
 
 ! LaTeX Error: Environment figure* undefined.
 
@@ -1175,13 +1145,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.95 \end{frame}
+l.94 \end{frame}
                 
 ? 
-<038441c925bb_anglez.png, id=152, 1176.5556pt x 212.4738pt>
+<038441c925bb_anglez.png, id=155, 1176.5556pt x 212.4738pt>
 File: 038441c925bb_anglez.png Graphic file (type png)
 <use 038441c925bb_anglez.png>
-Package pdftex.def Info: 038441c925bb_anglez.png  used on input line 95.
+Package pdftex.def Info: 038441c925bb_anglez.png  used on input line 94.
 (pdftex.def)             Requested size: 307.28987pt x 55.49152pt.
 
 ! Package caption Error: \caption outside float.
@@ -1190,69 +1160,69 @@ See the caption package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.95 \end{frame}
+l.94 \end{frame}
                 
 ? 
 
-! LaTeX Error: \begin{minipage} on input line 95 ended by \end{figure*}.
+! LaTeX Error: \begin{minipage} on input line 94 ended by \end{figure*}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.95 \end{frame}
+l.94 \end{frame}
                 
 ? 
 File: tsinghua_university.png Graphic file (type png)
 <use tsinghua_university.png>
-Package pdftex.def Info: tsinghua_university.png  used on input line 95.
+Package pdftex.def Info: tsinghua_university.png  used on input line 94.
 (pdftex.def)             Requested size: 65.55249pt x 26.12097pt.
 [4
 
  <./038441c925bb_anglez.png>]
 File: tsinghua_university.png Graphic file (type png)
 <use tsinghua_university.png>
-Package pdftex.def Info: tsinghua_university.png  used on input line 118.
+Package pdftex.def Info: tsinghua_university.png  used on input line 117.
 (pdftex.def)             Requested size: 65.55249pt x 26.12097pt.
  [5
 
 ]
 File: tsinghua_university.png Graphic file (type png)
 <use tsinghua_university.png>
-Package pdftex.def Info: tsinghua_university.png  used on input line 134.
+Package pdftex.def Info: tsinghua_university.png  used on input line 133.
 (pdftex.def)             Requested size: 65.55249pt x 26.12097pt.
  [6
 
 ]
 LaTeX Font Info:    Trying to load font information for U+dsrom on input line 1
-60.
+59.
 
 (/usr/share/texlive/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 )
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/dsrom/m/n/10'
-(microtype)             (new value: 10.0pt) on input line 160.
+(microtype)             (new value: 10.0pt) on input line 159.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/dsrom/m/n/7'
-(microtype)             (new value: 7.0pt) on input line 160.
+(microtype)             (new value: 7.0pt) on input line 159.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/dsrom/m/n/5'
-(microtype)             (new value: 5.0pt) on input line 160.
+(microtype)             (new value: 5.0pt) on input line 159.
 File: tsinghua_university.png Graphic file (type png)
 <use tsinghua_university.png>
-Package pdftex.def Info: tsinghua_university.png  used on input line 160.
+Package pdftex.def Info: tsinghua_university.png  used on input line 159.
 (pdftex.def)             Requested size: 65.55249pt x 26.12097pt.
  [7
 
 ]
 File: tsinghua_university.png Graphic file (type png)
 <use tsinghua_university.png>
-Package pdftex.def Info: tsinghua_university.png  used on input line 183.
+Package pdftex.def Info: tsinghua_university.png  used on input line 182.
 (pdftex.def)             Requested size: 65.55249pt x 26.12097pt.
  [8
 
 ]
 File: tsinghua_university.png Graphic file (type png)
 <use tsinghua_university.png>
-Package pdftex.def Info: tsinghua_university.png  used on input line 191.
+Package pdftex.def Info: tsinghua_university.png  used on input line 219.
 (pdftex.def)             Requested size: 65.55249pt x 26.12097pt.
 
 [9
@@ -1260,23 +1230,34 @@ Package pdftex.def Info: tsinghua_university.png  used on input line 191.
 ]
 File: tsinghua_university.png Graphic file (type png)
 <use tsinghua_university.png>
-Package pdftex.def Info: tsinghua_university.png  used on input line 199.
+Package pdftex.def Info: tsinghua_university.png  used on input line 244.
 (pdftex.def)             Requested size: 65.55249pt x 26.12097pt.
  [10
 
 ]
-No file presentation.bbl.
-
-Overfull \vbox (3.50562pt too high) detected at line 212
- []
-
 File: tsinghua_university.png Graphic file (type png)
 <use tsinghua_university.png>
-Package pdftex.def Info: tsinghua_university.png  used on input line 212.
+Package pdftex.def Info: tsinghua_university.png  used on input line 251.
 (pdftex.def)             Requested size: 65.55249pt x 26.12097pt.
-[11
+ [11
 
-]
+] (./presentation.bbl
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmtt' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/dsrom/m/n/9'
+(microtype)             (new value: 9.0pt) on input line 16.
+Package microtype Info: Fixing zero \fontdimen 6 for font `U/dsrom/m/n/6'
+(microtype)             (new value: 6.0pt) on input line 16.
+)
+File: tsinghua_university.png Graphic file (type png)
+<use tsinghua_university.png>
+Package pdftex.def Info: tsinghua_university.png  used on input line 264.
+(pdftex.def)             Requested size: 65.55249pt x 26.12097pt.
+ [12
+
+ </usr/share/texlive/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
 \tf@nav=\write6
 \openout6 = `presentation.nav'.
 
@@ -1286,24 +1267,18 @@ Package pdftex.def Info: tsinghua_university.png  used on input line 212.
 \tf@snm=\write8
 \openout8 = `presentation.snm'.
 
- (./presentation.aux
-LaTeX Info: Redefining \. on input line 23.
-LaTeX Info: Redefining \% on input line 23.
-)
-
-LaTeX Warning: There were undefined references.
-
+ (./presentation.aux)
 Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 31328 strings out of 476091
- 617718 string characters out of 5794080
+ 30112 strings out of 476091
+ 599265 string characters out of 5794080
  1867330 words of memory out of 5000000
- 50981 multiletter control sequences out of 15000+600000
- 522525 words of font info for 104 fonts, out of 8000000 for 9000
+ 49767 multiletter control sequences out of 15000+600000
+ 523491 words of font info for 110 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,15n,122p,1009b,925s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,15n,122p,1009b,924s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texli
@@ -1318,15 +1293,17 @@ fonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/doublestroke/dsrom10.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on presentation.pdf (11 pages, 510922 bytes).
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/doublestroke/dsrom10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/symbols/msam7.pfb>
+Output written on presentation.pdf (12 pages, 552532 bytes).
 PDF statistics:
- 568 PDF objects out of 1000 (max. 8388607)
- 421 compressed objects within 5 object streams
- 25 named destinations out of 1000 (max. 500000)
- 29199 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 659 PDF objects out of 1000 (max. 8388607)
+ 485 compressed objects within 5 object streams
+ 32 named destinations out of 1000 (max. 500000)
+ 31873 words of extra memory for PDF output out of 35830 (max. 10000000)
 
